@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Bot, Cloud, Smartphone, ShieldCheck, Cpu } from "lucide-react";
+import { Bot, Cloud, Smartphone, ShieldCheck, Cpu, Cog } from "lucide-react";
 
 export const TracksSection: React.FC = () => {
   const tracks = [
@@ -11,6 +11,7 @@ export const TracksSection: React.FC = () => {
     { title: "CYBERSECURITY", icon: ShieldCheck, tag: "DOMAIN 03" },
     { title: "ANDROID DEVELOPMENT", icon: Smartphone, tag: "DOMAIN 04" },
     { title: "DEVOPS & BLOCKCHAIN", icon: Cpu, tag: "DOMAIN 05" },
+    { title: "ROBOTICS & DESIGN", icon: Cog, tag: "DOMAIN 06" },
   ];
 
   return (

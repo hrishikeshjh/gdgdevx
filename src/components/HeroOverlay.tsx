@@ -52,15 +52,15 @@ export const HeroOverlay: React.FC = () => {
           <button
             onClick={(e) => e.preventDefault()}
             data-cursor="magnetic"
-            className="w-full sm:w-auto glass-pill px-8 sm:px-10 py-3.5 sm:py-4 text-xs sm:text-sm font-bold tracking-[0.15em] text-black bg-white hover:bg-white/90 transition-all duration-300 shadow-[0_0_50px_rgba(255,255,255,0.4)] flex items-center justify-center gap-3 uppercase cursor-default"
+            className="w-full sm:w-auto glass-pill px-8 sm:px-10 py-3.5 sm:py-4 text-xs sm:text-sm font-bold tracking-[0.15em] text-white bg-white/15 backdrop-blur-2xl border border-white/30 hover:bg-white/25 hover:border-white/60 transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.15)] flex items-center justify-center gap-3 uppercase cursor-default"
           >
             <span>Register Team</span>
-            <ArrowRight className="w-4 h-4 text-black shrink-0" />
+            <ArrowRight className="w-4 h-4 text-white shrink-0" />
           </button>
           <Link
             href="/sponsors"
             data-cursor="magnetic"
-            className="w-full sm:w-auto glass-pill px-7 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm font-bold tracking-[0.15em] text-white border border-white/30 hover:border-white transition-all duration-300 flex items-center justify-center gap-2 uppercase"
+            className="w-full sm:w-auto glass-pill px-7 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm font-bold tracking-[0.15em] text-white bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/20 hover:border-white/50 transition-all duration-300 flex items-center justify-center gap-2 uppercase"
           >
             <ShieldAlert className="w-4 h-4 text-yellow-300 shrink-0" />
             <span>Sponsors & POCs</span>

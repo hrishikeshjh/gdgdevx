@@ -29,7 +29,7 @@ export const AboutSection: React.FC = () => {
             Hackrit is the official hackathon of DevX 2.0, organized by GDG on Campus Techno India University in collaboration with School of the Future.
           </p>
           <p className="text-xs sm:text-base text-white/60 max-w-3xl mx-auto font-light leading-relaxed px-2">
-            Empowering university students in AI & Machine Learning, Web Development, Cybersecurity, Android Development, and DevOps & Blockchain.
+            Empowering university students in AI & Machine Learning, Web Development, Cybersecurity, Android Development, DevOps & Blockchain, and Robotics & Design.
           </p>
         </motion.div>
 

@@ -119,10 +119,10 @@ export const Navbar: React.FC<NavbarProps> = () => {
             <button
               onClick={(e) => e.preventDefault()}
               data-cursor="magnetic"
-              className="glass-pill px-6 py-3 text-xs font-bold tracking-[0.15em] text-white flex items-center gap-2 group transition-all duration-300 hover:border-white/50 opacity-90 cursor-default"
+              className="glass-pill px-6 py-2.5 text-xs font-bold tracking-[0.15em] text-white bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/20 hover:border-white/50 flex items-center gap-2 group transition-all duration-300 cursor-default"
             >
               <span>Register</span>
-              <ArrowRight className="w-3.5 h-3.5 text-white/70" />
+              <ArrowRight className="w-3.5 h-3.5 text-white/80 group-hover:translate-x-0.5 transition-transform" />
             </button>
           </nav>
         </motion.header>

@@ -21,9 +21,8 @@ export const HeroCanvas: React.FC<HeroCanvasProps> = ({ images }) => {
     restDelta: 0.0001,
   });
 
-  // Camera scale and slight 3D rotation continuous morph effect
+  // Camera scale morph effect across whole page
   const scale = useTransform(smoothProgress, [0, 0.5, 1], [1, 1.05, 0.95]);
-  const rotateX = useTransform(smoothProgress, [0, 0.5, 1], [2, 0, -2]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -112,7 +111,7 @@ export const HeroCanvas: React.FC<HeroCanvasProps> = ({ images }) => {
     <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center">
       <motion.canvas
         ref={canvasRef}
-        style={{ scale, rotateX }}
+        style={{ scale }}
         className="w-full h-full object-contain pointer-events-none"
       />
     </div>

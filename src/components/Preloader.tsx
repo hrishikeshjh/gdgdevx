@@ -62,22 +62,25 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
         >
           {/* Official GDG Logo */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col items-center gap-4 mb-8"
+            initial={{ opacity: 0, scale: 0.85, y: 15 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col items-center gap-6 mb-10"
           >
-            <div className="relative w-16 h-16">
+            <div className="relative w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 flex items-center justify-center">
+              {/* Background ambient glow */}
+              <div className="absolute inset-0 bg-white/10 rounded-full blur-3xl scale-90 animate-pulse" />
+              
               <NextImage
                 src="/logo.svg"
                 alt="GDG Logo"
-                width={64}
-                height={64}
-                className="w-full h-full object-contain"
+                width={256}
+                height={256}
+                className="w-full h-full object-contain relative z-10 filter drop-shadow-[0_0_50px_rgba(255,255,255,0.3)]"
                 priority
               />
             </div>
-            <span className="text-xs uppercase tracking-[0.25em] text-white/60 font-medium">
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-white/70 font-mono font-bold text-center px-4">
               GOOGLE DEVELOPER GROUPS ON CAMPUS · TECHNO INDIA UNIVERSITY
             </span>
           </motion.div>

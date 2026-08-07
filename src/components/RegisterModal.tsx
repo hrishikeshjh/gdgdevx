@@ -169,7 +169,7 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
                         <option value="Web & Cloud Native">Web & Cloud Native</option>
                         <option value="Mobile & Cross-Platform">Mobile & Cross-Platform</option>
                         <option value="Cyber Security & Web3">Cyber Security & Web3</option>
-                        <option value="Robotics & Hardware">Robotics & Hardware</option>
+                        <option value="Robotics & Design">Robotics & Design</option>
                       </select>
                     </div>
                   </div>
@@ -178,10 +178,10 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
                   <button
                     type="submit"
                     data-cursor="magnetic"
-                    className="w-full glass-pill py-3.5 text-sm font-medium text-black bg-white hover:bg-white/90 transition-all flex items-center justify-center gap-2 mt-6 shadow-[0_0_30px_rgba(255,255,255,0.3)]"
+                    className="w-full glass-pill py-3.5 text-sm font-bold tracking-wider text-white bg-white/20 backdrop-blur-xl border border-white/30 hover:bg-white/30 hover:border-white/60 transition-all flex items-center justify-center gap-2 mt-6 shadow-[0_0_20px_rgba(255,255,255,0.15)]"
                   >
                     <span>Confirm Registration</span>
-                    <ArrowRight className="w-4 h-4 text-black" />
+                    <ArrowRight className="w-4 h-4 text-white" />
                   </button>
                 </form>
               </div>
