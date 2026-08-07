@@ -5,50 +5,33 @@ import { motion, AnimatePresence } from "framer-motion";
 import NextImage from "next/image";
 
 interface PreloaderProps {
-  onComplete: (images: HTMLImageElement[]) => void;
+  onComplete: () => void;
 }
 
 export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
   const [progress, setProgress] = useState<number>(0);
   const [isFinished, setIsFinished] = useState<boolean>(false);
-  const totalFrames = 100;
 
   useEffect(() => {
-    const loadedImages: HTMLImageElement[] = [];
-    let loadedCount = 0;
-
-    for (let i = 1; i <= totalFrames; i++) {
-      const img = new window.Image();
-      const frameIndexStr = String(i).padStart(3, "0");
-      img.src = `/frames/ezgif-frame-${frameIndexStr}.png`;
-
-      img.onload = () => {
-        loadedCount++;
-        const currentProgress = Math.round((loadedCount / totalFrames) * 100);
-        setProgress(currentProgress);
-
-        if (loadedCount === totalFrames) {
-          setTimeout(() => {
-            setIsFinished(true);
-            setTimeout(() => {
-              onComplete(loadedImages);
-            }, 600);
-          }, 300);
-        }
-      };
-
-      img.onerror = () => {
-        loadedCount++;
-        const currentProgress = Math.round((loadedCount / totalFrames) * 100);
-        setProgress(currentProgress);
-        if (loadedCount === totalFrames) {
+    let current = 0;
+    const timer = setInterval(() => {
+      current += 4;
+      if (current >= 100) {
+        current = 100;
+        setProgress(100);
+        clearInterval(timer);
+        setTimeout(() => {
           setIsFinished(true);
-          onComplete(loadedImages);
-        }
-      };
+          setTimeout(() => {
+            onComplete();
+          }, 400);
+        }, 200);
+      } else {
+        setProgress(current);
+      }
+    }, 35);
 
-      loadedImages[i - 1] = img;
-    }
+    return () => clearInterval(timer);
   }, [onComplete]);
 
   return (
