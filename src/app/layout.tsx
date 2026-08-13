@@ -17,16 +17,24 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "DEVX 2.0 · HACKRIT 2026 | GDG On Campus Techno India University",
+  title: "HACKRIT 2026 · DEVX 2.0 | GDG On Campus Techno India University",
   description:
     "Build. Innovate. Connect. Join HACKRIT 2026, the official 24-hour flagship hackathon of DEVX 2.0 organized by School of the Future X GDG On Campus Techno India University.",
   keywords: [
-    "DEVX 2026",
     "HACKRIT 2026",
+    "DEVX 2.0",
     "GDG Techno India University",
     "Google Developer Groups",
     "Hackathon Kolkata",
   ],
+  icons: {
+    icon: [
+      { url: "/logo.png", type: "image/png" },
+      { url: "/logo.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({
