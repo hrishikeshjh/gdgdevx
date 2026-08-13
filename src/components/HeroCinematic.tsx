@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { ChevronDown, ArrowUpRight } from "lucide-react";
+import { ChevronDown, ArrowUpRight, Code2, Sparkles, Layers, Cpu } from "lucide-react";
 
 export const HeroCinematic: React.FC = () => {
   const { scrollY } = useScroll();
@@ -38,9 +38,94 @@ export const HeroCinematic: React.FC = () => {
   return (
     <section className="relative z-10 w-full min-h-[100dvh] flex flex-col justify-between items-center px-4 sm:px-8 pt-24 sm:pt-28 pb-8 sm:pb-12 overflow-hidden select-none">
       {/* Subtle Volumetric Atmospheric Glow Behind Logo */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[580px] h-[320px] sm:h-[580px] pointer-events-none -z-10">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[580px] h-[320px] sm:h-[580px] pointer-events-none -z-20">
         <div className="absolute inset-0 bg-gradient-to-tr from-[#4285F4]/15 via-[#EA4335]/10 to-[#34A853]/15 rounded-full blur-[100px] sm:blur-[140px] animate-pulse" />
         <div className="absolute inset-10 bg-[#FBBC05]/8 rounded-full blur-[80px]" />
+      </div>
+
+      {/* BACKGROUND FLOATING GLASS ELEMENTS (Depth Layer Behind the Logo - Same Color & Blur) */}
+      <div className="absolute inset-0 pointer-events-none -z-10 flex items-center justify-center">
+        {/* Floating Element 1: Top-Left-Mid AI / Agents Chip */}
+        <motion.div
+          animate={{
+            x: mousePos.x * 0.6 + [0, -12, 0][1],
+            y: mousePos.y * 0.6 + [0, 14, 0][1],
+          }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+          style={{ opacity: pillsOpacity }}
+          className="absolute top-[28%] left-[8%] sm:left-[18%] px-3.5 py-1.5 rounded-full border border-white/12 bg-white/[0.03] backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] flex items-center gap-2 text-[8px] sm:text-[9.5px] font-mono text-white/50 tracking-wider uppercase opacity-45 sm:opacity-60"
+        >
+          <Cpu className="w-3 h-3 text-[#4285F4]/70" />
+          <span>AI_MODELS × AGENTS</span>
+        </motion.div>
+
+        {/* Floating Element 2: Top-Right-Mid 24H Code Chip */}
+        <motion.div
+          animate={{
+            x: -mousePos.x * 0.5 + [0, 15, 0][1],
+            y: mousePos.y * 0.5 + [0, -12, 0][1],
+          }}
+          transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          style={{ opacity: pillsOpacity }}
+          className="absolute top-[26%] right-[8%] sm:right-[16%] px-3.5 py-1.5 rounded-full border border-white/12 bg-white/[0.03] backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] flex items-center gap-2 text-[8px] sm:text-[9.5px] font-mono text-white/50 tracking-wider uppercase opacity-45 sm:opacity-60"
+        >
+          <Code2 className="w-3 h-3 text-[#EA4335]/70" />
+          <span>{"{ 24H_HACKATHON }"}</span>
+        </motion.div>
+
+        {/* Floating Element 3: Mid-Left Campus Node Badge */}
+        <motion.div
+          animate={{
+            x: mousePos.x * 0.4 + [0, 10, 0][1],
+            y: -mousePos.y * 0.4 + [0, -10, 0][1],
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          style={{ opacity: pillsOpacity }}
+          className="hidden md:flex absolute top-[52%] left-[10%] px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.025] backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] items-center gap-2 text-[9px] font-mono text-white/40 tracking-widest uppercase opacity-50"
+        >
+          <span className="w-1 h-1 rounded-full bg-[#FBBC05] animate-ping" />
+          <span>TIU_SECTOR_V // NODE_01</span>
+        </motion.div>
+
+        {/* Floating Element 4: Mid-Right Grid Chip */}
+        <motion.div
+          animate={{
+            x: -mousePos.x * 0.4 + [0, -12, 0][1],
+            y: mousePos.y * 0.4 + [0, 12, 0][1],
+          }}
+          transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+          style={{ opacity: pillsOpacity }}
+          className="hidden md:flex absolute top-[50%] right-[10%] px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.025] backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] items-center gap-2 text-[9px] font-mono text-white/40 tracking-widest uppercase opacity-50"
+        >
+          <Layers className="w-3 h-3 text-[#34A853]/70" />
+          <span>SYS_MATRIX_v2.0</span>
+        </motion.div>
+
+        {/* Floating Element 5: Bottom-Left-Mid Binary Badge */}
+        <motion.div
+          animate={{
+            x: mousePos.x * 0.5 + [0, -8, 0][1],
+            y: -mousePos.y * 0.5 + [0, 10, 0][1],
+          }}
+          transition={{ duration: 8.5, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+          style={{ opacity: pillsOpacity }}
+          className="absolute bottom-[28%] left-[12%] sm:left-[22%] px-3 py-1 rounded-full border border-white/10 bg-white/[0.02] backdrop-blur-xl text-[7.5px] sm:text-[8.5px] font-mono text-white/35 tracking-widest uppercase opacity-40 sm:opacity-55"
+        >
+          <span>01001000 // HACK</span>
+        </motion.div>
+
+        {/* Floating Element 6: Bottom-Right-Mid Innovate Chip */}
+        <motion.div
+          animate={{
+            x: -mousePos.x * 0.5 + [0, 10, 0][1],
+            y: mousePos.y * 0.5 + [0, -8, 0][1],
+          }}
+          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
+          style={{ opacity: pillsOpacity }}
+          className="absolute bottom-[26%] right-[12%] sm:right-[20%] px-3 py-1 rounded-full border border-white/10 bg-white/[0.02] backdrop-blur-xl text-[7.5px] sm:text-[8.5px] font-mono text-white/35 tracking-widest uppercase opacity-40 sm:opacity-55"
+        >
+          <span>INNOVATE · BUILD</span>
+        </motion.div>
       </div>
 
       {/* TOP FLOATING PILLS (Outer Orbit - Never overlapping the center logo) */}
