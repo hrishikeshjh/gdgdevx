@@ -4,10 +4,11 @@ import React, { useState, useCallback } from "react";
 import { Preloader } from "@/components/Preloader";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { CustomCursor } from "@/components/CustomCursor";
+import { CinematicParticleEngine } from "@/components/CinematicParticleEngine";
 import { AmbientMeshBackground } from "@/components/AmbientMeshBackground";
-import { FloatingTechElements } from "@/components/FloatingTechElements";
 import { Navbar } from "@/components/Navbar";
-import { HeroOverlay } from "@/components/HeroOverlay";
+import { HeroCinematic } from "@/components/HeroCinematic";
+import { EventRevealSection } from "@/components/EventRevealSection";
 import { AboutSection } from "@/components/AboutSection";
 import { StatsSection } from "@/components/StatsSection";
 import { TracksSection } from "@/components/TracksSection";
@@ -35,30 +36,48 @@ export default function Home() {
   return (
     <SmoothScroll>
       <main className="relative bg-black text-white min-h-screen selection:bg-white selection:text-black overflow-x-hidden">
-        {/* Preloader - only runs once per session */}
+        {/* Preloader - 2-second tech initialization screen */}
         <Preloader onComplete={handlePreloadComplete} />
 
-        {/* Ambient Soft Mesh Gradients in Google Palette */}
+        {/* Signature Interactive GPU-Accelerated Particle Physics Engine */}
+        <CinematicParticleEngine />
+
+        {/* Ambient Soft Mesh Atmospheric Glow in Google Palette */}
         <AmbientMeshBackground />
 
         {/* Custom Apple Spring Cursor */}
         <CustomCursor />
 
-        {/* Small Floating Tech Chips across background */}
-        <FloatingTechElements />
-
-        {/* Floating Glass Navigation */}
+        {/* Minimal Floating Glass Navigation */}
         <Navbar onOpenRegister={handleOpenRegister} />
 
-        {/* Scroll Content Sections - Rendered immediately for instant navigation */}
+        {/* Scroll Experience Flow */}
         <div className="relative z-10">
-          <HeroOverlay onOpenRegister={handleOpenRegister} />
+          {/* SECTION 01 — MINIMAL CINEMATIC HERO (Centered HackRIT Logo, Orbiting Glass Pills, No CTA Buttons) */}
+          <HeroCinematic />
+
+          {/* SECTION 02 — THE EVENT REVEAL (Particle Transition Reveal, Date/Venue Cards, Discovered CTAs) */}
+          <EventRevealSection onOpenRegister={handleOpenRegister} />
+
+          {/* SECTION 03 — ABOUT & PILLARS */}
           <AboutSection />
+
+          {/* SECTION 04 — STATS */}
           <StatsSection />
+
+          {/* SECTION 05 — DOMAINS & TRACKS */}
           <TracksSection />
+
+          {/* SECTION 06 — 24H EVENT TIMELINE */}
           <TimelineSection />
+
+          {/* SECTION 07 — PRIZES & PERKS */}
           <PrizesSection />
+
+          {/* SECTION 08 — FAQS */}
           <FaqSection />
+
+          {/* SECTION 09 — FOOTER & CONTACT */}
           <Footer />
         </div>
 
