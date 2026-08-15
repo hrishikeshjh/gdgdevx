@@ -26,15 +26,15 @@ export const EventRevealSection: React.FC<EventRevealSectionProps> = ({ onOpenRe
       className="relative z-10 min-h-screen py-24 sm:py-36 px-4 sm:px-6 flex flex-col justify-center items-center scroll-mt-16 select-none"
     >
       <div className="max-w-5xl mx-auto w-full flex flex-col items-center text-center space-y-12 sm:space-y-16">
-        {/* Top Floating Badge */}
+        {/* Top Badge */}
         <motion.div
           initial={{ opacity: 0, y: 30, scale: 0.95 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-pill border border-white/20 bg-white/[0.04] backdrop-blur-2xl shadow-[0_0_30px_rgba(255,255,255,0.1)]"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-pill border border-white/20 bg-white/[0.04] backdrop-blur-2xl"
         >
-          <Sparkles className="w-3.5 h-3.5 text-[#4285F4]" />
+          <Sparkles className="w-3.5 h-3.5 text-white/70" />
           <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-white/85 font-bold">
             THE HACKATHON REVEAL
           </span>
@@ -50,7 +50,7 @@ export const EventRevealSection: React.FC<EventRevealSectionProps> = ({ onOpenRe
         >
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-[0.06em] text-white uppercase leading-tight">
             OFFICIAL 24-HOUR HACKATHON OF{" "}
-            <span className="text-gradient-apple block sm:inline mt-1 sm:mt-0 font-extrabold drop-shadow-[0_0_35px_rgba(255,255,255,0.3)]">
+            <span className="text-white block sm:inline mt-1 sm:mt-0 font-extrabold">
               DEVX 2.0
             </span>
           </h2>
@@ -59,7 +59,7 @@ export const EventRevealSection: React.FC<EventRevealSectionProps> = ({ onOpenRe
           </p>
         </motion.div>
 
-        {/* Floating Glass Information Cards Grid */}
+        {/* Information Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 w-full max-w-3xl">
           {/* Date Card */}
           <motion.div
@@ -70,10 +70,10 @@ export const EventRevealSection: React.FC<EventRevealSectionProps> = ({ onOpenRe
             className="glass-card p-6 sm:p-8 flex flex-col justify-between border border-white/20 bg-white/[0.03] backdrop-blur-2xl rounded-3xl hover:border-white/40 transition-all duration-300 shadow-[0_15px_40px_rgba(0,0,0,0.6)] text-left"
           >
             <div className="flex items-center justify-between mb-4">
-              <span className="text-[10px] font-mono tracking-widest text-[#4285F4] uppercase font-bold">
+              <span className="text-[10px] font-mono tracking-widest text-white/60 uppercase font-bold">
                 TIMELINE // DURATION
               </span>
-              <Calendar className="w-4 h-4 text-[#4285F4]" />
+              <Calendar className="w-4 h-4 text-white/70" />
             </div>
             <div>
               <h3 className="text-2xl sm:text-3xl font-bold text-white font-mono tracking-wide mb-1 uppercase">
@@ -94,10 +94,10 @@ export const EventRevealSection: React.FC<EventRevealSectionProps> = ({ onOpenRe
             className="glass-card p-6 sm:p-8 flex flex-col justify-between border border-white/20 bg-white/[0.03] backdrop-blur-2xl rounded-3xl hover:border-white/40 transition-all duration-300 shadow-[0_15px_40px_rgba(0,0,0,0.6)] text-left"
           >
             <div className="flex items-center justify-between mb-4">
-              <span className="text-[10px] font-mono tracking-widest text-[#EA4335] uppercase font-bold">
+              <span className="text-[10px] font-mono tracking-widest text-white/60 uppercase font-bold">
                 CAMPUS VENUE
               </span>
-              <MapPin className="w-4 h-4 text-[#EA4335]" />
+              <MapPin className="w-4 h-4 text-white/70" />
             </div>
             <div>
               <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-wide mb-1 uppercase leading-snug">

@@ -11,28 +11,24 @@ export const SpeakersSection: React.FC = () => {
       role: "AI Research Scientist",
       org: "Google DeepMind",
       initials: "AR",
-      accent: "border-blue-500/30",
     },
     {
       name: "Rohan Mukherjee",
       role: "Staff Cloud Architect",
       org: "Google Developer Expert",
       initials: "RM",
-      accent: "border-red-500/30",
     },
     {
       name: "Siddharth Verma",
       role: "Lead Developer",
       org: "GDG Techno India University",
       initials: "SV",
-      accent: "border-yellow-500/30",
     },
     {
       name: "Priya Sengupta",
       role: "VP of Engineering",
       org: "Tech Scaleup Founder",
       initials: "PS",
-      accent: "border-green-500/30",
     },
   ];
 
@@ -48,13 +44,12 @@ export const SpeakersSection: React.FC = () => {
           className="text-center mb-20"
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#4285F4]" />
             <span className="text-xs uppercase tracking-[0.2em] font-medium text-white/60">
               Mentors & Judges
             </span>
           </div>
           <h2 className="text-4xl sm:text-6xl font-extralight tracking-tight text-white mb-6">
-            Learn from <span className="font-normal text-gradient-apple">Industry Leaders</span>
+            Learn from <span className="font-normal text-white">Industry Leaders</span>
           </h2>
           <p className="text-base sm:text-lg text-white/50 max-w-xl mx-auto font-light">
             Guided by veteran Google Developer Experts, AI researchers, and engineering directors.
@@ -70,7 +65,7 @@ export const SpeakersSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className={`glass-card p-6 flex flex-col items-center text-center group hover:scale-[1.03] ${speaker.accent}`}
+              className="glass-card p-6 flex flex-col items-center text-center group hover:scale-[1.03] border-white/20"
             >
               {/* Minimalist Avatar Badge */}
               <div className="w-20 h-20 rounded-full bg-white/5 border border-white/15 flex items-center justify-center text-xl font-light font-mono text-white mb-5 group-hover:border-white/40 transition-colors shadow-inner">
@@ -80,7 +75,7 @@ export const SpeakersSection: React.FC = () => {
               <h3 className="text-lg font-medium text-white tracking-tight mb-1">
                 {speaker.name}
               </h3>
-              <p className="text-xs font-mono text-blue-400 mb-1">{speaker.role}</p>
+              <p className="text-xs font-mono text-white/70 mb-1">{speaker.role}</p>
               <p className="text-xs text-white/40 font-light mb-6">{speaker.org}</p>
 
               <div className="flex items-center gap-3 text-white/40">

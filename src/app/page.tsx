@@ -4,17 +4,18 @@ import React, { useState, useCallback } from "react";
 import { Preloader } from "@/components/Preloader";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { CustomCursor } from "@/components/CustomCursor";
-import { CinematicParticleEngine } from "@/components/CinematicParticleEngine";
-import { AmbientMeshBackground } from "@/components/AmbientMeshBackground";
 import { Navbar } from "@/components/Navbar";
 import { HeroCinematic } from "@/components/HeroCinematic";
 import { EventRevealSection } from "@/components/EventRevealSection";
 import { AboutSection } from "@/components/AboutSection";
 import { StatsSection } from "@/components/StatsSection";
+import { WhenWhereSection } from "@/components/WhenWhereSection";
 import { TracksSection } from "@/components/TracksSection";
 import { TimelineSection } from "@/components/TimelineSection";
 import { PrizesSection } from "@/components/PrizesSection";
 import { FaqSection } from "@/components/FaqSection";
+import { ReachOutSection } from "@/components/ReachOutSection";
+import { CloudyBackground } from "@/components/CloudyBackground";
 import { Footer } from "@/components/Footer";
 import { RegisterModal } from "@/components/RegisterModal";
 
@@ -36,14 +37,11 @@ export default function Home() {
   return (
     <SmoothScroll>
       <main className="relative bg-black text-white min-h-screen selection:bg-white selection:text-black overflow-x-hidden">
+        {/* Cloudy Whitish Gradient Ambient Background */}
+        <CloudyBackground />
+
         {/* Preloader - 2-second tech initialization screen */}
         <Preloader onComplete={handlePreloadComplete} />
-
-        {/* Signature Interactive GPU-Accelerated Particle Physics Engine */}
-        <CinematicParticleEngine />
-
-        {/* Ambient Soft Mesh Atmospheric Glow in Google Palette */}
-        <AmbientMeshBackground />
 
         {/* Custom Apple Spring Cursor */}
         <CustomCursor />
@@ -53,17 +51,17 @@ export default function Home() {
 
         {/* Scroll Experience Flow */}
         <div className="relative z-10">
-          {/* SECTION 01 — MINIMAL CINEMATIC HERO (Centered HackRIT Logo, Orbiting Glass Pills, No CTA Buttons) */}
-          <HeroCinematic />
+          {/* SECTION 01 — HERO SECTION */}
+          <HeroCinematic onOpenRegister={handleOpenRegister} />
 
-          {/* SECTION 02 — THE EVENT REVEAL (Particle Transition Reveal, Date/Venue Cards, Discovered CTAs) */}
-          <EventRevealSection onOpenRegister={handleOpenRegister} />
-
-          {/* SECTION 03 — ABOUT & PILLARS */}
+          {/* SECTION 02 — ABOUT & PILLARS */}
           <AboutSection />
 
-          {/* SECTION 04 — STATS */}
+          {/* SECTION 03 — STATS */}
           <StatsSection />
+
+          {/* SECTION 04 — WHEN & WHERE */}
+          <WhenWhereSection />
 
           {/* SECTION 05 — DOMAINS & TRACKS */}
           <TracksSection />
@@ -77,7 +75,10 @@ export default function Home() {
           {/* SECTION 08 — FAQS */}
           <FaqSection />
 
-          {/* SECTION 09 — FOOTER & CONTACT */}
+          {/* SECTION 09 — REACH OUT TO US (CONTACT TILE) */}
+          <ReachOutSection />
+
+          {/* SECTION 10 — FOOTER */}
           <Footer />
         </div>
 

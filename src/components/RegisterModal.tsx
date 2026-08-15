@@ -23,12 +23,12 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Trigger confetti explosion
+    // Trigger clean monochrome confetti
     confetti({
-      particleCount: 120,
-      spread: 80,
+      particleCount: 80,
+      spread: 70,
       origin: { y: 0.6 },
-      colors: ["#4285F4", "#EA4335", "#FBBC05", "#34A853"],
+      colors: ["#ffffff", "#e0e0e0", "#aaaaaa", "#777777"],
     });
 
     setSubmitted(true);
@@ -73,13 +73,13 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({ isOpen, onClose })
               <div>
                 {/* Header */}
                 <div className="flex items-center gap-2 mb-2 pr-10">
-                  <Sparkles className="w-4 h-4 text-[#4285F4] shrink-0" />
-                  <span className="text-[10px] sm:text-xs uppercase font-mono tracking-widest text-[#4285F4] font-bold truncate">
+                  <Sparkles className="w-4 h-4 text-white/70 shrink-0" />
+                  <span className="text-[10px] sm:text-xs uppercase font-mono tracking-widest text-white/70 font-bold truncate">
                     GDG ON CAMPUS · TECHNO INDIA UNIVERSITY
                   </span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-1.5 uppercase tracking-wide">
-                  Register for <span className="text-gradient-apple">HACKRIT 2026</span>
+                  Register for HACKRIT 2026
                 </h3>
                 <p className="text-xs text-white/60 font-light mb-5 leading-relaxed">
                   Reserve your team slot for the flagship 24-hour hackathon of DEVX 2.0.

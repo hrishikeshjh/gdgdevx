@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Menu, X, Phone, Trophy, HelpCircle, Calendar, Layers, Info, Sparkles } from "lucide-react";
+import { ArrowRight, Menu, X, Phone, Trophy, HelpCircle, Calendar, Layers, Info, Sparkles } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,21 +11,7 @@ interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Close mobile menu on desktop resize
   useEffect(() => {
@@ -64,15 +50,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
 
   return (
     <>
-      <header className="fixed top-3 sm:top-5 inset-x-0 z-40 flex justify-center px-3 sm:px-4 pointer-events-none transition-all duration-300">
-        <nav
-          className={`pointer-events-auto flex items-center justify-between w-full max-w-6xl px-4 sm:px-7 py-3 sm:py-3.5 transition-all duration-300 rounded-2xl sm:rounded-[28px] ${
-            isScrolled || mobileMenuOpen
-              ? "bg-black/90 backdrop-blur-2xl border border-white/25 shadow-[0_20px_50px_rgba(0,0,0,0.95)]"
-              : "bg-white/[0.05] backdrop-blur-xl border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
-          }`}
-        >
-          {/* Hackrit Logo */}
+      <header className="fixed top-4 sm:top-6 inset-x-0 z-40 flex justify-center px-3 sm:px-6 pointer-events-none">
+        <nav className="pointer-events-auto flex items-center justify-between w-full max-w-5xl px-5 sm:px-8 py-2.5 sm:py-3 bg-white rounded-full shadow-[0_10px_35px_rgba(0,0,0,0.6)] text-black transition-all duration-300">
+          {/* HackRIT Logo */}
           <Link
             href="/"
             onClick={(e) => {
@@ -80,90 +60,95 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
               setMobileMenuOpen(false);
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="flex items-center group text-white decoration-none shrink-0"
-            data-cursor="magnetic"
+            className="flex items-center group decoration-none shrink-0 cursor-pointer"
           >
-            <div className="relative h-7 sm:h-8 w-24 sm:w-28 flex items-center shrink-0">
+            <div className="relative h-6 sm:h-7 w-24 sm:w-28 flex items-center shrink-0">
               <Image
                 src="/logo.png"
-                alt="Hackrit Logo"
+                alt="HackRIT Logo"
                 width={140}
                 height={40}
-                className="w-full h-full object-contain object-left filter drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] hover:scale-105 transition-transform"
+                className="w-full h-full object-contain object-left invert"
                 priority
               />
             </div>
           </Link>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden md:flex items-center gap-6 lg:gap-8 text-xs font-bold tracking-[0.2em] text-white/70 uppercase">
+          <div className="hidden md:flex items-center gap-6 lg:gap-8 text-[11px] lg:text-xs font-bold tracking-[0.18em] text-black uppercase">
             <a
               href="#about"
               onClick={(e) => scrollToSection(e, "about")}
-              className="hover:text-white transition-colors duration-200 cursor-pointer"
+              className="hover:opacity-60 transition-opacity duration-200 cursor-pointer"
             >
-              About
+              ABOUT
             </a>
             <a
               href="#tracks"
               onClick={(e) => scrollToSection(e, "tracks")}
-              className="hover:text-white transition-colors duration-200 cursor-pointer"
+              className="hover:opacity-60 transition-opacity duration-200 cursor-pointer"
             >
-              Domains
+              DOMAINS
             </a>
             <a
               href="#timeline"
               onClick={(e) => scrollToSection(e, "timeline")}
-              className="hover:text-white transition-colors duration-200 cursor-pointer"
+              className="hover:opacity-60 transition-opacity duration-200 cursor-pointer"
             >
-              Timeline
+              TIMELINE
             </a>
             <a
               href="#prizes"
               onClick={(e) => scrollToSection(e, "prizes")}
-              className="hover:text-white transition-colors duration-200 cursor-pointer"
+              className="hover:opacity-60 transition-opacity duration-200 cursor-pointer"
             >
-              Prizes
+              PRIZES
             </a>
             <a
               href="#faq"
               onClick={(e) => scrollToSection(e, "faq")}
-              className="hover:text-white transition-colors duration-200 cursor-pointer"
+              className="hover:opacity-60 transition-opacity duration-200 cursor-pointer"
             >
-              FAQs
+              FAQS
             </a>
           </div>
 
-          {/* Actions: DevX 2.0 CTA Pill & Register Button & Mobile Menu Toggle */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            {/* Go to DevX 2.0 Pill Button */}
+          {/* Actions: DevX 2.0 Link & Register Button & Mobile Menu Toggle */}
+          <div className="flex items-center gap-3 sm:gap-4">
+            {/* DevX 2.0 Logo Link with Arrow */}
             <a
               href="#about"
               onClick={(e) => scrollToSection(e, "about")}
-              data-cursor="magnetic"
-              className="glass-pill px-3 sm:px-5 py-2 text-[9px] sm:text-xs font-bold tracking-[0.1em] sm:tracking-[0.12em] text-white bg-gradient-to-r from-[#4285F4]/20 via-white/10 to-[#34A853]/20 backdrop-blur-xl border border-white/30 hover:border-white/70 hover:shadow-[0_0_20px_rgba(255,255,255,0.25)] active:scale-95 flex items-center gap-1.5 group transition-all duration-200 cursor-pointer"
+              className="hidden sm:flex items-center gap-1.5 hover:opacity-75 transition-opacity cursor-pointer group"
+              title="DevX 2.0"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#4285F4] animate-led-fast shrink-0" />
-              <span className="whitespace-nowrap hidden sm:inline">Go to DevX 2.0</span>
-              <span className="whitespace-nowrap sm:hidden">DevX 2.0</span>
-              <ArrowUpRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white/80 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
+              <div className="relative h-5 sm:h-6 w-24 sm:w-28 flex items-center">
+                <Image
+                  src="/devx2.0 logo.png"
+                  alt="DevX 2.0"
+                  width={120}
+                  height={28}
+                  className="h-full w-auto object-contain"
+                  priority
+                />
+              </div>
+              <ArrowRight className="w-3.5 h-3.5 text-black group-hover:translate-x-0.5 transition-transform shrink-0" />
             </a>
 
             {/* Desktop Register Button */}
             <button
               onClick={handleRegisterClick}
-              data-cursor="magnetic"
-              className="hidden md:flex glass-pill px-5 py-2 text-xs font-bold tracking-[0.15em] text-white bg-white/15 backdrop-blur-xl border border-white/30 hover:bg-white/25 hover:border-white/60 active:scale-95 items-center gap-2 group transition-all duration-200 cursor-pointer shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+              className="hidden md:flex bg-black text-white rounded-full px-5 py-2 text-[11px] font-bold tracking-[0.15em] hover:bg-neutral-800 active:scale-95 items-center gap-1.5 transition-all duration-200 cursor-pointer shrink-0"
             >
-              <span>Register</span>
-              <ArrowRight className="w-3.5 h-3.5 text-white/80 group-hover:translate-x-0.5 transition-transform" />
+              <span>REGISTER</span>
+              <ArrowRight className="w-3.5 h-3.5 text-white" />
             </button>
 
             {/* Mobile Menu Hamburger Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-              className="md:hidden w-9 h-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white/90 hover:bg-white/20 active:scale-95 transition-all cursor-pointer"
+              className="md:hidden w-8 h-8 rounded-full bg-black/5 hover:bg-black/10 flex items-center justify-center text-black active:scale-95 transition-all cursor-pointer"
             >
               {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
             </button>
@@ -181,9 +166,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="fixed inset-0 z-30 pt-24 pb-8 px-4 bg-black/95 backdrop-blur-3xl md:hidden flex flex-col justify-between overflow-y-auto overscroll-contain"
           >
-            {/* Ambient Mobile Glow */}
-            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-64 h-64 bg-[#4285F4]/15 blur-3xl rounded-full pointer-events-none" />
-
             {/* Mobile Navigation Links */}
             <div className="flex flex-col space-y-3 pt-4 relative z-10">
               <span className="text-[10px] font-mono tracking-widest text-white/40 uppercase font-bold px-2">
@@ -196,7 +178,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                 className="glass-card p-4 flex items-center justify-between text-sm font-bold tracking-wider text-white uppercase border border-white/15 active:bg-white/10 transition-colors"
               >
                 <div className="flex items-center gap-3">
-                  <Info className="w-4 h-4 text-[#4285F4]" />
+                  <Info className="w-4 h-4 text-white/70" />
                   <span>About Hackrit</span>
                 </div>
                 <ArrowRight className="w-4 h-4 text-white/40" />
@@ -208,7 +190,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                 className="glass-card p-4 flex items-center justify-between text-sm font-bold tracking-wider text-white uppercase border border-white/15 active:bg-white/10 transition-colors"
               >
                 <div className="flex items-center gap-3">
-                  <Layers className="w-4 h-4 text-[#EA4335]" />
+                  <Layers className="w-4 h-4 text-white/70" />
                   <span>Hackathon Domains</span>
                 </div>
                 <ArrowRight className="w-4 h-4 text-white/40" />
@@ -220,7 +202,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                 className="glass-card p-4 flex items-center justify-between text-sm font-bold tracking-wider text-white uppercase border border-white/15 active:bg-white/10 transition-colors"
               >
                 <div className="flex items-center gap-3">
-                  <Calendar className="w-4 h-4 text-[#FBBC05]" />
+                  <Calendar className="w-4 h-4 text-white/70" />
                   <span>Event Timeline</span>
                 </div>
                 <ArrowRight className="w-4 h-4 text-white/40" />
@@ -232,7 +214,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                 className="glass-card p-4 flex items-center justify-between text-sm font-bold tracking-wider text-white uppercase border border-white/15 active:bg-white/10 transition-colors"
               >
                 <div className="flex items-center gap-3">
-                  <Trophy className="w-4 h-4 text-[#34A853]" />
+                  <Trophy className="w-4 h-4 text-white/70" />
                   <span>Prizes & Perks</span>
                 </div>
                 <ArrowRight className="w-4 h-4 text-white/40" />
@@ -270,14 +252,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
                   rel="noopener noreferrer"
                   className="glass-pill py-2.5 border border-white/15 flex items-center justify-center gap-1.5 text-white/80 active:bg-white/10"
                 >
-                  <Phone className="w-3 h-3 text-[#4285F4]" />
+                  <Phone className="w-3 h-3 text-white/70" />
                   <span>WhatsApp Krish</span>
                 </a>
                 <a
                   href="mailto:gdgtiudevxoffcial@gmail.com?subject=DEVX%202.0%20/%20Hackrit%20Inquiry"
                   className="glass-pill py-2.5 border border-white/15 flex items-center justify-center gap-1.5 text-white/80 active:bg-white/10 truncate px-2"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#EA4335]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-white/70" />
                   <span>Email Support</span>
                 </a>
               </div>

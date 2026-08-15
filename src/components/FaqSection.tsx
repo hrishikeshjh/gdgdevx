@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus, HelpCircle } from "lucide-react";
+import { Plus, Minus } from "lucide-react";
 
 export const FaqSection: React.FC = () => {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
@@ -31,54 +31,56 @@ export const FaqSection: React.FC = () => {
   ];
 
   return (
-    <section id="faq" className="relative z-10 py-24 sm:py-32 px-4 sm:px-6 scroll-mt-20 sm:scroll-mt-24">
+    <section id="faq" className="relative z-10 py-20 sm:py-28 px-4 sm:px-6 scroll-mt-20 sm:scroll-mt-24">
       <div className="max-w-4xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16 sm:mb-20"
+          transition={{ duration: 0.7 }}
+          className="text-center mb-12 sm:mb-16"
         >
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-pill mb-6 border border-white/20">
-            <div className="flex items-center gap-1">
+          {/* White Pill with 4 Google Dots */}
+          <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-white text-black mb-6 shadow-[0_4px_20px_rgba(255,255,255,0.15)] border border-white">
+            <div className="flex items-center gap-1 shrink-0">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4285F4]" />
               <span className="w-1.5 h-1.5 rounded-full bg-[#EA4335]" />
               <span className="w-1.5 h-1.5 rounded-full bg-[#FBBC05]" />
               <span className="w-1.5 h-1.5 rounded-full bg-[#34A853]" />
             </div>
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-bold text-white">
+            <span className="text-[10px] sm:text-xs font-mono font-bold tracking-[0.16em] uppercase text-black">
               HACKATHON INTELLIGENCE
             </span>
           </div>
-          <h2 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-[0.08em] text-white mb-4 uppercase leading-tight">
-            FREQUENTLY ASKED <span className="text-gradient-apple">QUESTIONS</span>
+
+          <h2 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-[0.08em] text-white mb-4 uppercase leading-tight font-futuristic">
+            FREQUENTLY ASKED QUESTIONS
           </h2>
-          <p className="text-sm sm:text-base text-white/60 max-w-xl mx-auto font-light leading-relaxed">
+          <p className="text-xs sm:text-sm font-mono tracking-widest text-white/60 max-w-xl mx-auto uppercase">
             Everything you need to know about eligibility, logistics, and event rules.
           </p>
         </motion.div>
 
-        <div className="space-y-4 sm:space-y-5">
+        <div className="space-y-3.5 sm:space-y-4">
           {faqs.map((faq, idx) => {
             const isOpen = openIdx === idx;
             return (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.05 }}
-                className="glass-card border border-white/20 hover:border-white/45 bg-white/[0.03] backdrop-blur-2xl rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-300 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]"
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                className="bg-white text-black border border-neutral-100 rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_10px_35px_rgba(0,0,0,0.5)] transition-all duration-200"
               >
                 <button
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
-                  className="w-full p-6 sm:p-8 text-left flex items-center justify-between gap-4 focus:outline-none group cursor-pointer"
+                  className="w-full p-5 sm:p-7 text-left flex items-center justify-between gap-4 focus:outline-none cursor-pointer"
                 >
-                  <span className="text-base sm:text-xl font-bold text-white tracking-wide uppercase group-hover:text-white transition-colors">
+                  <span className="text-sm sm:text-base font-black text-black tracking-wide uppercase">
                     {faq.q}
                   </span>
-                  <div className="w-9 h-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white/80 shrink-0 group-hover:border-white/50 group-hover:bg-white/20 transition-all">
+                  <div className="w-8 h-8 rounded-full bg-black/5 flex items-center justify-center text-black shrink-0">
                     {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                   </div>
                 </button>
@@ -89,8 +91,8 @@ export const FaqSection: React.FC = () => {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                      className="px-6 sm:px-8 pb-6 sm:pb-8 text-xs sm:text-sm text-white/70 font-light leading-relaxed border-t border-white/10 pt-4"
+                      transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                      className="px-5 sm:px-7 pb-5 sm:pb-7 text-xs sm:text-[13px] text-neutral-600 font-sans leading-relaxed border-t border-neutral-100 pt-3"
                     >
                       {faq.a}
                     </motion.div>

@@ -5,71 +5,77 @@ import { motion } from "framer-motion";
 
 export const TimelineSection: React.FC = () => {
   const schedule = [
-    { time: "09:00 AM", title: "CHECK-IN & WELCOME", phase: "DAY 1", dot: "bg-[#4285F4]" },
-    { time: "10:30 AM", title: "KEYNOTE & BRIEFING", phase: "DAY 1", dot: "bg-[#EA4335]" },
-    { time: "11:30 AM", title: "HACKING BEGINS", phase: "DAY 1", dot: "bg-[#34A853]" },
-    { time: "08:00 PM", title: "MENTORSHIP ROUND", phase: "DAY 1", dot: "bg-[#FBBC05]" },
-    { time: "08:00 AM", title: "CODE FREEZE", phase: "DAY 2", dot: "bg-[#EA4335]" },
-    { time: "10:30 AM", title: "PROJECT DEMOS", phase: "DAY 2", dot: "bg-[#4285F4]" },
-    { time: "01:30 PM", title: "AWARD CEREMONY", phase: "DAY 2", dot: "bg-[#34A853]" },
+    { time: "09:00 AM", title: "CHECK-IN & WELCOME", phase: "DAY 1" },
+    { time: "10:30 AM", title: "KEYNOTE & BRIEFING", phase: "DAY 1" },
+    { time: "11:30 AM", title: "HACKING BEGINS", phase: "DAY 1" },
+    { time: "08:00 PM", title: "MENTORSHIP ROUND", phase: "DAY 1" },
+    { time: "08:00 AM", title: "CODE FREEZE", phase: "DAY 2" },
+    { time: "10:30 AM", title: "PROJECT DEMOS", phase: "DAY 2" },
+    { time: "01:30 PM", title: "AWARD CEREMONY", phase: "DAY 2" },
   ];
 
   return (
-    <section id="timeline" className="relative z-10 py-24 sm:py-32 px-4 sm:px-6 scroll-mt-20 sm:scroll-mt-24">
+    <section id="timeline" className="relative z-10 py-20 sm:py-28 px-4 sm:px-6 scroll-mt-20 sm:scroll-mt-24">
       <div className="max-w-4xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16 sm:mb-20"
+          transition={{ duration: 0.7 }}
+          className="text-center mb-12 sm:mb-16"
         >
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-pill mb-6 border border-white/20">
-            <div className="flex items-center gap-1">
+          {/* White Pill with 4 Google Dots */}
+          <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-white text-black mb-6 shadow-[0_4px_20px_rgba(255,255,255,0.15)] border border-white">
+            <div className="flex items-center gap-1 shrink-0">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4285F4]" />
               <span className="w-1.5 h-1.5 rounded-full bg-[#EA4335]" />
               <span className="w-1.5 h-1.5 rounded-full bg-[#FBBC05]" />
               <span className="w-1.5 h-1.5 rounded-full bg-[#34A853]" />
             </div>
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-bold text-white">
+            <span className="text-[10px] sm:text-xs font-mono font-bold tracking-[0.16em] uppercase text-black">
               24-HOUR SPRINT SCHEDULE
             </span>
           </div>
-          <h2 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-[0.08em] text-white mb-4 uppercase leading-tight">
-            EVENT <span className="text-gradient-apple">TIMELINE</span>
+
+          <h2 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-[0.08em] text-white mb-4 uppercase leading-tight font-futuristic">
+            EVENT TIMELINE
           </h2>
-          <p className="text-sm sm:text-base text-white/60 max-w-xl mx-auto font-light leading-relaxed">
-            From initial kickoff to stage pitch demos — mark the milestones of HACKRIT 2026.
+          <p className="text-xs sm:text-sm font-mono tracking-widest text-white/60 max-w-xl mx-auto uppercase">
+            24-Hour Non-Stop Milestone Schedule · Day 1 Kickoff to Day 2 Finale
           </p>
         </motion.div>
 
-        <div className="relative border-l border-white/20 ml-4 sm:ml-36 space-y-6 sm:space-y-8 pl-6 sm:pl-10">
+        {/* Stacked White Pill Rows */}
+        <div className="space-y-3 sm:space-y-3.5">
           {schedule.map((item, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.08 }}
-              className="relative"
+              transition={{ duration: 0.4, delay: idx * 0.05 }}
+              className="bg-white text-black rounded-full px-5 sm:px-8 py-3.5 sm:py-4 flex items-center justify-between shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-neutral-100 hover:scale-[1.01] transition-transform duration-200"
             >
-              {/* Timeline Indicator Dot */}
-              <div className="absolute -left-[31px] sm:-left-[47px] top-5 w-6 h-6 rounded-full bg-black border border-white/30 flex items-center justify-center shadow-[0_0_10px_rgba(255,255,255,0.2)]">
-                <span className={`w-2 h-2 rounded-full ${item.dot} shadow-[0_0_8px_currentColor]`} />
-              </div>
-
-              <div className="hidden sm:block absolute -left-40 top-5 text-right w-28">
-                <div className="text-sm font-mono font-bold text-white">{item.time}</div>
-                <div className="text-[11px] font-mono text-white/50">{item.phase}</div>
-              </div>
-
-              <div className="glass-card p-5 sm:p-6 border border-white/20 hover:border-white/45 bg-white/[0.03] backdrop-blur-2xl rounded-2xl sm:rounded-3xl shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] transition-all duration-300">
-                <span className="sm:hidden text-xs font-mono text-white/70 block mb-1 font-bold">
-                  {item.time} · {item.phase}
+              {/* Left: Time */}
+              <div className="flex items-center gap-3 w-28 sm:w-36 shrink-0">
+                <span className="w-2 h-2 rounded-full bg-black/80 shrink-0" />
+                <span className="text-xs sm:text-sm font-black font-mono tracking-wider text-black">
+                  {item.time}
                 </span>
-                <h3 className="text-lg sm:text-xl font-bold text-white tracking-wider uppercase leading-snug">
+              </div>
+
+              {/* Center: Title */}
+              <div className="flex-1 text-center px-2">
+                <span className="text-xs sm:text-sm font-black uppercase tracking-[0.14em] text-black truncate block">
                   {item.title}
-                </h3>
+                </span>
+              </div>
+
+              {/* Right: Phase / Day */}
+              <div className="w-16 sm:w-24 text-right shrink-0">
+                <span className="text-[10px] sm:text-xs font-mono font-bold tracking-widest text-neutral-400 uppercase">
+                  {item.phase}
+                </span>
               </div>
             </motion.div>
           ))}
