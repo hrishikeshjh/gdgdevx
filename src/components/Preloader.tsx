@@ -18,7 +18,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
     setIsFinished(true);
     setTimeout(() => {
       onComplete();
-    }, 450);
+    }, 500);
   };
 
   useEffect(() => {
@@ -33,10 +33,10 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
       }
     }
 
-    // Safety fallback timer so preloader never hangs
+    // Safety fallback timer (10s) to guarantee site accessibility if video decoding fails
     const fallbackTimer = setTimeout(() => {
       finishLoading();
-    }, 3500);
+    }, 10000);
 
     return () => clearTimeout(fallbackTimer);
   }, []);
@@ -47,21 +47,28 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black select-none pointer-events-none overflow-hidden"
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="fixed inset-0 z-50 w-screen h-screen bg-black select-none pointer-events-auto overflow-hidden flex items-center justify-center"
         >
-          <div className="relative w-full h-full max-w-xl md:max-w-2xl max-h-[85vh] flex items-center justify-center p-4">
-            <video
-              ref={videoRef}
-              src="/loading-screen.mp4"
-              autoPlay
-              muted
-              playsInline
-              preload="auto"
-              onEnded={finishLoading}
-              className="w-full h-full object-contain filter drop-shadow-[0_0_50px_rgba(255,255,255,0.2)]"
-            />
-          </div>
+          {/* Fullscreen Video Frame Filling Entire Viewport */}
+          <video
+            ref={videoRef}
+            src="/loading-screen.mp4"
+            autoPlay
+            muted
+            playsInline
+            preload="auto"
+            onEnded={finishLoading}
+            className="w-full h-full object-cover"
+          />
+
+          {/* Minimal Skip Indicator (top right) */}
+          <button
+            onClick={finishLoading}
+            className="absolute top-6 right-6 z-10 text-[10px] font-mono font-bold tracking-[0.2em] text-white/40 hover:text-white/80 transition-colors uppercase px-3 py-1.5 rounded-full bg-white/5 backdrop-blur-md border border-white/10 cursor-pointer"
+          >
+            SKIP →
+          </button>
         </motion.div>
       )}
     </AnimatePresence>
