@@ -5,13 +5,13 @@ import { motion } from "framer-motion";
 
 export const TimelineSection: React.FC = () => {
   const schedule = [
-    { time: "09:00 AM", title: "CHECK-IN & WELCOME", phase: "DAY 1" },
-    { time: "10:30 AM", title: "KEYNOTE & BRIEFING", phase: "DAY 1" },
-    { time: "11:30 AM", title: "HACKING BEGINS", phase: "DAY 1" },
-    { time: "08:00 PM", title: "MENTORSHIP ROUND", phase: "DAY 1" },
-    { time: "08:00 AM", title: "CODE FREEZE", phase: "DAY 2" },
-    { time: "10:30 AM", title: "PROJECT DEMOS", phase: "DAY 2" },
-    { time: "01:30 PM", title: "AWARD CEREMONY", phase: "DAY 2" },
+    { time: "09:00 AM", title: "CHECK-IN & WELCOME" },
+    { time: "10:30 AM", title: "KEYNOTE & BRIEFING" },
+    { time: "11:30 AM", title: "HACKING BEGINS" },
+    { time: "08:00 PM", title: "MENTORSHIP ROUND" },
+    { time: "08:00 AM", title: "CODE FREEZE" },
+    { time: "10:30 AM", title: "PROJECT DEMOS" },
+    { time: "01:30 PM", title: "AWARD CEREMONY" },
   ];
 
   return (
@@ -54,27 +54,20 @@ export const TimelineSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className="bg-white text-black rounded-full px-5 sm:px-8 py-3.5 sm:py-4 flex items-center justify-between shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-neutral-100 hover:scale-[1.01] transition-transform duration-200"
+              className="bg-white text-black rounded-full px-6 sm:px-10 py-3.5 sm:py-4 flex items-center justify-between shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-neutral-100 hover:scale-[1.01] transition-transform duration-200"
             >
               {/* Left: Time */}
-              <div className="flex items-center gap-3 w-28 sm:w-36 shrink-0">
+              <div className="flex items-center gap-3 shrink-0">
                 <span className="w-2 h-2 rounded-full bg-black/80 shrink-0" />
                 <span className="text-xs sm:text-sm font-black font-mono tracking-wider text-black">
                   {item.time}
                 </span>
               </div>
 
-              {/* Center: Title */}
-              <div className="flex-1 text-center px-2">
-                <span className="text-xs sm:text-sm font-black uppercase tracking-[0.14em] text-black truncate block">
+              {/* Right: Title */}
+              <div className="text-right pl-4">
+                <span className="text-xs sm:text-sm font-black uppercase tracking-[0.14em] text-black">
                   {item.title}
-                </span>
-              </div>
-
-              {/* Right: Phase / Day */}
-              <div className="w-16 sm:w-24 text-right shrink-0">
-                <span className="text-[10px] sm:text-xs font-mono font-bold tracking-widest text-neutral-400 uppercase">
-                  {item.phase}
                 </span>
               </div>
             </motion.div>
