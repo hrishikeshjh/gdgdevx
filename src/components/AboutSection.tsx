@@ -2,52 +2,55 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Calendar, MapPin, ArrowRight } from "lucide-react";
 
 export const AboutSection: React.FC = () => {
   const pillars = [
     {
-      tag: "01 // SKILLS",
+      tag: "01 // BUILD",
       dot: "bg-[#4285F4]",
       title: (
         <>
-          SKILLED<br />BUILDERS
+          WHAT YOU<br />BUILD
         </>
       ),
-      desc: "CONNECT WITH PASSIONATE STUDENT HACKERS CREATING IMPACTFUL REAL-WORLD SOFTWARE & SYSTEMS.",
+      desc: "ONE PROTOTYPE, BUILT AND DEMOED IN 24 HOURS — NOT A SLIDE DECK.",
     },
     {
-      tag: "02 // EXPOSURE",
+      tag: "02 // CONNECT",
       dot: "bg-[#EA4335]",
       title: (
         <>
-          PRODUCT<br />DEMOS
+          WHO YOU<br />MEET
         </>
       ),
-      desc: "SHOWCASE CUTTING-EDGE DEVELOPER PLATFORMS, APIS, AND MODERN TOOLCHAINS DIRECTLY TO BUILDERS.",
+      desc: "MENTORS, JUDGES, AND 2,500+ BUILDERS ACROSS SIX DOMAINS.",
     },
     {
-      tag: "03 // BRANDING",
+      tag: "03 // REWARDS",
       dot: "bg-[#FBBC05]",
       title: (
         <>
-          HIGH<br />VISIBILITY
+          WHAT YOU<br />WIN
         </>
       ),
-      desc: "PROMINENT BRAND POSITIONING ON-STAGE, ACROSS OFFICIAL MERCHANDISE, AND DIGITAL BROADCASTS.",
+      desc: "CASH PRIZES, CLOUD CREDITS, AND DIRECT INTERVIEW FAST-TRACKS.",
     },
     {
-      tag: "04 // NETWORK",
+      tag: "04 // TAKEAWAY",
       dot: "bg-[#34A853]",
-      title: "MENTORSHIP",
-      desc: "DIRECT ENGAGEMENT WITH TECHNICAL LEADERS, WORKSHOP CONDUCTORS, AND HIRING PARTNERS.",
+      title: (
+        <>
+          WHAT YOU<br />GET
+        </>
+      ),
+      desc: "CERTIFICATE, SWAG, AND A WORKING PROJECT FOR YOUR PORTFOLIO.",
     },
   ];
 
   return (
     <section id="about" className="relative z-10 pt-16 sm:pt-24 pb-6 px-4 sm:px-6 scroll-mt-20 sm:scroll-mt-24">
       <div className="max-w-6xl mx-auto space-y-12 sm:space-y-16">
-        {/* EXACT ABOUT HACKRIT HEADER BLOCK */}
+        {/* ABOUT HACKRIT HEADER BLOCK */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -75,12 +78,12 @@ export const AboutSection: React.FC = () => {
 
           {/* Primary Paragraph */}
           <p className="text-xs sm:text-sm md:text-base font-bold tracking-[0.14em] sm:tracking-[0.16em] text-white/90 max-w-4xl mx-auto uppercase leading-relaxed mb-4">
-            HACKRIT IS THE PREMIER HACKATHON OF DEVX 2.0, ORGANIZED BY GDG ON CAMPUS TECHNO INDIA UNIVERSITY IN COLLABORATION WITH SCHOOL OF THE FUTURE.
+            HACKRIT IS THE OFFICIAL HACKATHON OF DEVX 2.0, RUN BY GDG ON CAMPUS TECHNO INDIA UNIVERSITY IN COLLABORATION WITH SCHOOL OF THE FUTURE.
           </p>
 
           {/* Secondary Paragraph */}
           <p className="text-[10px] sm:text-xs md:text-sm font-medium tracking-[0.14em] sm:tracking-[0.16em] text-white/60 max-w-3xl mx-auto uppercase leading-relaxed">
-            EMPOWERING 2,500+ BUILDERS IN AI & MACHINE LEARNING, WEB DEVELOPMENT, CYBERSECURITY, ANDROID, DEVOPS & BLOCKCHAIN, AND ROBOTICS.
+            2,500+ BUILDERS WORK ACROSS AI & MACHINE LEARNING, WEB DEVELOPMENT, CYBERSECURITY, ANDROID, DEVOPS & BLOCKCHAIN, AND ROBOTICS.
           </p>
         </motion.div>
 

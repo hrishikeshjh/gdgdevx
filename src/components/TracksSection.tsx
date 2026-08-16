@@ -65,7 +65,7 @@ export const TracksSection: React.FC = () => {
             HACKRIT DOMAINS
           </h2>
           <p className="text-xs sm:text-sm font-mono tracking-widest text-white/60 max-w-2xl mx-auto uppercase">
-            Choose your arena and build transformative solutions across six industry tracks.
+            Six tracks. Pick the one you want to build in.
           </p>
         </motion.div>
 

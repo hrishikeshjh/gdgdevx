@@ -9,24 +9,24 @@ export const FaqSection: React.FC = () => {
 
   const faqs = [
     {
-      q: "Who can participate in HACKRIT 2026?",
-      a: "HACKRIT 2026 is open to all university students, developers, and tech enthusiasts. Beginners and seasoned hackers are both welcome!",
+      q: "Who can participate in Hackrit 2026?",
+      a: "Any university student, developer, or tech enthusiast — beginner or experienced.",
     },
     {
       q: "What is the team size limit?",
-      a: "Teams can range from 1 to 4 members. You can either register as an established team or form a team on our official Discord server before hacking begins.",
+      a: "Teams can range from 1 to 4 members. You can either register as an established team or form one with fellow builders before hacking begins.",
     },
     {
       q: "Is participation free?",
-      a: "Yes, HACKRIT 2026 is 100% free of charge. Full hospitality including meals, energy snacks, swags, mentor sessions, and high-speed networking are provided.",
+      a: "Yes, Hackrit 2026 is 100% free of charge. Full hospitality including meals, energy snacks, swags, mentor sessions, and high-speed networking are provided.",
     },
     {
       q: "Where is the hackathon hosted?",
-      a: "The hackathon is hosted in-person at Techno India University, Salt Lake Sector V, Kolkata, organized by GDG On Campus TIU in collaboration with School of the Future.",
+      a: "Techno India University, EM-4, Salt Lake City, Sector V, Kolkata.",
     },
     {
       q: "What should I bring to the venue?",
-      a: "Bring your laptop, charger, student ID/government ID, hardware components (if hacking in IoT/Robotics), and your unstoppable hacker spirit!",
+      a: "Bring your laptop, charger, student ID or government photo ID, and hardware components if hacking in Robotics/IoT.",
     },
   ];
 

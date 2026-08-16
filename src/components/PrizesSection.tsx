@@ -31,7 +31,7 @@ export const PrizesSection: React.FC = () => {
             PRIZES & PERKS
           </h2>
           <p className="text-xs sm:text-sm font-mono tracking-widest text-white/60 max-w-xl mx-auto uppercase">
-            Substantial cash bounties, exclusive swags, cloud credits, and accelerator fast-tracks.
+            Cash, swag, cloud credits, and accelerator fast-tracks.
           </p>
         </motion.div>
 
@@ -55,7 +55,7 @@ export const PrizesSection: React.FC = () => {
                 2ND PLACE
               </h3>
               <p className="text-xs sm:text-[13px] text-neutral-600 font-sans leading-relaxed">
-                Cash prize, cloud credits, tech hardware swags & fast-track interviews.
+                Cash prize, cloud credits, tech hardware, and fast-track interviews.
               </p>
             </div>
             <div className="mt-8 pt-6 border-t border-neutral-200 flex items-center justify-between text-xs font-mono text-neutral-500 font-bold tracking-wider uppercase">
@@ -83,7 +83,7 @@ export const PrizesSection: React.FC = () => {
                 1ST PLACE
               </h3>
               <p className="text-xs sm:text-[13px] text-neutral-600 font-sans leading-relaxed">
-                Grand cash pool, winner trophy, premium dev swag kits & direct VC / incubator pitch.
+                Cash pool, winner trophy, dev swag kit, and a direct VC/incubator pitch.
               </p>
             </div>
             <div className="mt-8 pt-6 border-t border-neutral-200 flex items-center justify-between text-xs font-mono text-neutral-500 font-bold tracking-wider uppercase">
@@ -111,7 +111,7 @@ export const PrizesSection: React.FC = () => {
                 3RD PLACE
               </h3>
               <p className="text-xs sm:text-[13px] text-neutral-600 font-sans leading-relaxed">
-                Cash reward, special category prizes, cloud vouchers & merch box.
+                Cash reward, special category prizes, cloud vouchers, and a merch box.
               </p>
             </div>
             <div className="mt-8 pt-6 border-t border-neutral-200 flex items-center justify-between text-xs font-mono text-neutral-500 font-bold tracking-wider uppercase">

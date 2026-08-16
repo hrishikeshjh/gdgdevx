@@ -41,7 +41,7 @@ export const TimelineSection: React.FC = () => {
             EVENT TIMELINE
           </h2>
           <p className="text-xs sm:text-sm font-mono tracking-widest text-white/60 max-w-xl mx-auto uppercase">
-            24-Hour Non-Stop Milestone Schedule · Day 1 Kickoff to Day 2 Finale
+            Every checkpoint, start to finish.
           </p>
         </motion.div>
 
