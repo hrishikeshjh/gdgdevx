@@ -27,6 +27,42 @@ export const HeroCinematic: React.FC<HeroCinematicProps> = ({ onOpenRegister }) 
 
   return (
     <section className="relative z-10 w-full min-h-[100dvh] flex flex-col justify-between items-center px-4 sm:px-8 pt-28 sm:pt-36 pb-8 sm:pb-12 overflow-hidden select-none bg-black">
+      {/* 1. TOP-LEFT CORNER CLOUD */}
+      <div
+        className="absolute -top-[120px] sm:-top-[180px] -left-[140px] sm:-left-[240px] w-[550px] sm:w-[850px] h-[550px] sm:h-[850px] pointer-events-none -z-10"
+        style={{
+          maskImage: "radial-gradient(ellipse 55% 55% at 50% 50%, rgba(0,0,0,1) 15%, rgba(0,0,0,0.5) 45%, transparent 75%)",
+          WebkitMaskImage: "radial-gradient(ellipse 55% 55% at 50% 50%, rgba(0,0,0,1) 15%, rgba(0,0,0,0.5) 45%, transparent 75%)",
+        }}
+      >
+        <div
+          className="w-full h-full opacity-60 sm:opacity-70"
+          style={{
+            background: "linear-gradient(180deg, #FFFEFE 27.88%, #848484 67.31%, #A3A0A0 100%)",
+            filter: "blur(180px)",
+            transform: "matrix(-0.33, -0.94, 0.94, -0.35, 0, 0)",
+          }}
+        />
+      </div>
+
+      {/* 2. BOTTOM-RIGHT CORNER CLOUD */}
+      <div
+        className="absolute -bottom-[100px] sm:-bottom-[160px] -right-[140px] sm:-right-[240px] w-[550px] sm:w-[850px] h-[550px] sm:h-[850px] pointer-events-none -z-10"
+        style={{
+          maskImage: "radial-gradient(ellipse 55% 55% at 50% 50%, rgba(0,0,0,1) 15%, rgba(0,0,0,0.5) 45%, transparent 75%)",
+          WebkitMaskImage: "radial-gradient(ellipse 55% 55% at 50% 50%, rgba(0,0,0,1) 15%, rgba(0,0,0,0.5) 45%, transparent 75%)",
+        }}
+      >
+        <div
+          className="w-full h-full opacity-55 sm:opacity-65"
+          style={{
+            background: "linear-gradient(180deg, #FFFEFE 27.88%, #848484 67.31%, #A3A0A0 100%)",
+            filter: "blur(180px)",
+            transform: "matrix(0.33, 0.94, -0.94, 0.35, 0, 0)",
+          }}
+        />
+      </div>
+
       {/* Spacer for Top Alignment */}
       <div className="w-full h-2 sm:h-4" />
 
