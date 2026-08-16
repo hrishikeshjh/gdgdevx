@@ -191,7 +191,7 @@ export const HeroCinematic: React.FC<HeroCinematicProps> = ({ onOpenRegister }) 
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-black group-hover:translate-x-1 transition-transform shrink-0" />
           </button>
 
-          {/* DEVX 2.0 BUTTON (Big Black Pill with Crisp White Border, Larger Logo & arrow) */}
+          {/* DEVX 2.0 BUTTON (Big Black Pill with Crisp Thin White Border, Larger Logo & arrow) */}
           <a
             href="#about"
             onClick={(e) => {
@@ -205,7 +205,7 @@ export const HeroCinematic: React.FC<HeroCinematicProps> = ({ onOpenRegister }) 
                 }
               }
             }}
-            className="bg-black text-white border-2 border-white rounded-full px-8 sm:px-12 py-3.5 sm:py-4 min-h-[64px] sm:min-h-[76px] flex items-center justify-center gap-4 sm:gap-6 hover:bg-white/10 active:scale-95 transition-all duration-200 shadow-[0_15px_40px_rgba(0,0,0,0.8)] cursor-pointer group shrink-0"
+            className="bg-black text-white border border-white/80 hover:border-white rounded-full px-8 sm:px-12 py-3.5 sm:py-4 min-h-[64px] sm:min-h-[76px] flex items-center justify-center gap-4 sm:gap-6 hover:bg-white/10 active:scale-95 transition-all duration-200 shadow-[0_15px_40px_rgba(0,0,0,0.8)] cursor-pointer group shrink-0"
           >
             <div className="relative h-6 sm:h-8 md:h-9 w-28 sm:w-36 md:w-44 flex items-center justify-center">
               <Image
