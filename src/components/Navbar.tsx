@@ -38,12 +38,12 @@ export const Navbar: React.FC<NavbarProps> = () => {
           }}
           className="flex items-center group decoration-none shrink-0 cursor-pointer pl-1"
         >
-          <div className="relative h-6 sm:h-7 md:h-8 w-20 sm:w-28 md:w-32 flex items-center shrink-0">
+          <div className="relative h-8 sm:h-9 md:h-10 w-28 sm:w-36 md:w-40 flex items-center shrink-0">
             <Image
               src="/logo.png"
               alt="HackRIT Logo"
-              width={200}
-              height={60}
+              width={240}
+              height={75}
               className="w-full h-full object-contain object-left invert transition-transform duration-200 group-hover:scale-105"
               priority
             />

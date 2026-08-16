@@ -7,9 +7,10 @@ import { ArrowRight } from "lucide-react";
 
 interface HeroCinematicProps {
   onOpenRegister?: () => void;
+  isLoaded?: boolean;
 }
 
-export const HeroCinematic: React.FC<HeroCinematicProps> = ({ onOpenRegister }) => {
+export const HeroCinematic: React.FC<HeroCinematicProps> = ({ onOpenRegister, isLoaded = false }) => {
   // Subtle mouse tilt parallax on desktop
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
@@ -111,13 +112,20 @@ export const HeroCinematic: React.FC<HeroCinematicProps> = ({ onOpenRegister }) 
       </div>
 
 
-      {/* CENTER HERO BLOCK */}
+      {/* CENTER HERO BLOCK (Smoothly blurs in on site load) */}
       <motion.div
+        initial={{ filter: "blur(20px)", opacity: 0, scale: 0.96 }}
         animate={{
+          filter: isLoaded ? "blur(0px)" : "blur(20px)",
+          opacity: isLoaded ? 1 : 0,
+          scale: isLoaded ? 1 : 0.96,
           rotateX: -mousePos.y * 0.4,
           rotateY: mousePos.x * 0.4,
         }}
         transition={{
+          filter: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
+          opacity: { duration: 1.0, ease: [0.16, 1, 0.3, 1] },
+          scale: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
           rotateX: { type: "spring", damping: 30, stiffness: 200 },
           rotateY: { type: "spring", damping: 30, stiffness: 200 },
         }}

@@ -21,9 +21,10 @@ import { RegisterModal } from "@/components/RegisterModal";
 
 export default function Home() {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const handlePreloadComplete = useCallback(() => {
-    // Session preloading completed
+    setIsLoaded(true);
   }, []);
 
   const handleOpenRegister = useCallback(() => {
@@ -40,7 +41,7 @@ export default function Home() {
         {/* Cloudy Whitish Gradient Ambient Background */}
         <CloudyBackground />
 
-        {/* Preloader - 2-second tech initialization screen */}
+        {/* Preloader - Complete 8-second radar loader with 1s blur-out */}
         <Preloader onComplete={handlePreloadComplete} />
 
         {/* Custom Apple Spring Cursor */}
@@ -51,8 +52,9 @@ export default function Home() {
 
         {/* Scroll Experience Flow */}
         <div className="relative z-10">
-          {/* SECTION 01 — HERO SECTION */}
-          <HeroCinematic onOpenRegister={handleOpenRegister} />
+          {/* SECTION 01 — HERO SECTION (Blurs in when loading finishes) */}
+          <HeroCinematic onOpenRegister={handleOpenRegister} isLoaded={isLoaded} />
+
 
           {/* SECTION 02 — ABOUT & PILLARS */}
           <AboutSection />

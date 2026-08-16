@@ -177,3 +177,219 @@
   animation: terminalCursor 0.9s infinite step-start;
 }
 
+/* =========================================================
+   COMPLETE 8s LOADING ANIMATION (2-PHASE MASTER CONTROLLER)
+   ========================================================= */
+.animation-wrapper {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* PHASE 1: LINEAR SLIDER & TARGET RINGS (0s – 3s) */
+.phase-slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: phase1Fade 8s infinite;
+}
+
+.slider-track {
+  position: absolute;
+  width: 220px;
+  height: 2px;
+  background: #ffffff;
+}
+
+.slider-endpoint {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  background: #000000;
+}
+.endpoint-left {
+  left: 36px;
+}
+.endpoint-right {
+  right: 36px;
+}
+
+.slider-target-rings {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: slideRings 8s ease-in-out infinite;
+}
+.slider-target-rings::before,
+.slider-target-rings::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+.slider-target-rings::before {
+  width: 38px;
+  height: 38px;
+}
+.slider-target-rings::after {
+  width: 52px;
+  height: 52px;
+}
+
+.slider-orb {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 16px 5px rgba(255, 255, 255, 0.95),
+              0 0 32px 10px rgba(255, 255, 255, 0.4);
+  z-index: 5;
+  animation: slideOrb 8s ease-in-out infinite;
+}
+
+/* PHASE 2: RADIAL RADAR & CASCADE IGNITION (3s – 8s) */
+.phase-radar {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: phase2Fade 8s infinite;
+}
+
+.radar-center-orb {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 16px 5px rgba(255, 255, 255, 0.95),
+              0 0 32px 10px rgba(255, 255, 255, 0.4);
+  z-index: 10;
+}
+
+.radar-scanner-arm {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: sweepRadar 8s linear infinite;
+}
+.radar-scanner-arm::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, #ffffff, rgba(255, 255, 255, 0.3));
+  transform-origin: 0% 50%;
+  margin-top: -1px;
+}
+
+.radar-node {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  background: transparent;
+  animation-name: nodeSequence;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.n1 { transform: translate(100px, 0); animation-delay: 0.00s; }
+.n2 { transform: translate(70.7px, 70.7px); animation-delay: 0.35s; }
+.n3 { transform: translate(0, 100px); animation-delay: 0.70s; }
+.n4 { transform: translate(-70.7px, 70.7px); animation-delay: 1.05s; }
+.n5 { transform: translate(-100px, 0); animation-delay: 1.40s; }
+.n6 { transform: translate(-70.7px, -70.7px); animation-delay: 1.75s; }
+.n7 { transform: translate(0, -100px); animation-delay: 2.10s; }
+.n8 { transform: translate(70.7px, -70.7px); animation-delay: 2.45s; }
+
+/* Keyframes */
+@keyframes phase1Fade {
+  0% { opacity: 1; visibility: visible; }
+  34% { opacity: 1; transform: scale(1); }
+  37.5% { opacity: 0; transform: scale(0.85); visibility: hidden; }
+  96% { opacity: 0; visibility: hidden; }
+  100% { opacity: 1; transform: scale(1); visibility: visible; }
+}
+
+@keyframes phase2Fade {
+  0%, 34% { opacity: 0; transform: scale(0.85); visibility: hidden; }
+  37.5% { opacity: 1; transform: scale(1); visibility: visible; }
+  93% { opacity: 1; transform: scale(1); }
+  97%, 100% { opacity: 0; transform: scale(0.85); visibility: hidden; }
+}
+
+@keyframes slideOrb {
+  0% { transform: translate(60px, 0); }
+  12% { transform: translate(110px, 0); }
+  20% { transform: translate(-110px, 0); }
+  30% { transform: translate(0, 0); }
+  37.5%, 100% { transform: translate(0, 0); }
+}
+
+@keyframes slideRings {
+  0% { transform: translate(110px, 0); }
+  14% { transform: translate(110px, 0); }
+  22% { transform: translate(-110px, 0); }
+  30% { transform: translate(0, 0); opacity: 0; }
+  37.5%, 100% { transform: translate(0, 0); opacity: 0; }
+}
+
+@keyframes sweepRadar {
+  0%, 37.5% { transform: rotate(0deg); opacity: 0; }
+  40% { opacity: 1; }
+  90% { transform: rotate(720deg); opacity: 1; }
+  95%, 100% { transform: rotate(720deg); opacity: 0; }
+}
+
+@keyframes nodeSequence {
+  0%, 37.5% {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: none;
+  }
+  45% {
+    background: #ffffff;
+    border-color: #ffffff;
+    box-shadow: 0 0 16px 6px rgba(255, 255, 255, 0.9),
+                0 0 30px 10px rgba(255, 255, 255, 0.4);
+  }
+  55% {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: none;
+  }
+  72%, 88% {
+    background: #ffffff;
+    border-color: #ffffff;
+    box-shadow: 0 0 18px 6px rgba(255, 255, 255, 0.95),
+                0 0 32px 12px rgba(255, 255, 255, 0.5);
+  }
+  94%, 100% {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0);
+    box-shadow: none;
+  }
+}
+
+
+
