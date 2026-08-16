@@ -2,88 +2,63 @@
 
 import React from "react";
 
-const NOISE_DATA_URI = `data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.35'/%3E%3C/svg%3E`;
-
 interface CloudOrbProps {
   className?: string;
-  isRight?: boolean;
+  glowColor?: string;
 }
 
-const CloudOrb: React.FC<CloudOrbProps> = ({ className, isRight = false }) => {
+const CloudOrb: React.FC<CloudOrbProps> = ({
+  className,
+  glowColor = "rgba(255, 255, 255, 0.04)",
+}) => {
   return (
     <div
-      className={`absolute pointer-events-none ${className}`}
+      className={`absolute pointer-events-none rounded-full ${className}`}
       style={{
-        maskImage: "radial-gradient(ellipse 55% 55% at 50% 50%, #000 35%, transparent 95%)",
-        WebkitMaskImage: "radial-gradient(ellipse 55% 55% at 50% 50%, #000 35%, transparent 95%)",
+        background: `radial-gradient(ellipse at center, ${glowColor} 0%, rgba(255, 255, 255, 0.01) 45%, transparent 70%)`,
+        filter: "blur(120px)",
       }}
-    >
-      {/* 1. Base Gradient Orb */}
-      <div
-        className="w-full h-full"
-        style={{
-          background: "linear-gradient(180deg, #FFFEFE 27.88%, #848484 67.31%, #A3A0A0 100%)",
-          filter: "blur(200px)",
-          transform: isRight
-            ? "matrix(0.33, 0.94, -0.94, 0.35, 0, 0)"
-            : "matrix(-0.33, -0.94, 0.94, -0.35, 0, 0)",
-        }}
-      />
-
-      {/* 2. Grainy Texture Masked to White Cloud Portion */}
-      <div
-        className="absolute inset-0 w-full h-full mix-blend-overlay opacity-50"
-        style={{
-          backgroundImage: `url("${NOISE_DATA_URI}")`,
-          backgroundRepeat: "repeat",
-          transform: isRight
-            ? "matrix(0.33, 0.94, -0.94, 0.35, 0, 0)"
-            : "matrix(-0.33, -0.94, 0.94, -0.35, 0, 0)",
-        }}
-      />
-    </div>
+    />
   );
 };
 
 export const CloudyBackground: React.FC = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-      {/* 1. Hero Top-Left Cloud */}
+      {/* 1. Hero Top-Left Subtle Ambient Glow */}
       <CloudOrb
-        className="w-[950px] sm:w-[1200px] h-[800px] sm:h-[1020px] -top-[140px] -left-[380px] opacity-45 sm:opacity-55"
+        className="w-[500px] sm:w-[800px] h-[500px] sm:h-[800px] -top-[100px] -left-[200px]"
+        glowColor="rgba(255, 255, 255, 0.05)"
       />
 
-      {/* 2. Hero Middle-Right Cloud */}
+      {/* 2. Hero Middle-Right Subtle Ambient Glow */}
       <CloudOrb
-        isRight
-        className="w-[850px] sm:w-[1100px] h-[720px] sm:h-[950px] top-[260px] sm:top-[340px] -right-[380px] opacity-40 sm:opacity-50"
+        className="w-[500px] sm:w-[750px] h-[500px] sm:h-[750px] top-[180px] sm:top-[280px] -right-[200px]"
+        glowColor="rgba(255, 255, 255, 0.04)"
       />
 
-      {/* 3. About / Stats Left Cloud */}
+      {/* 3. About Section Subtle Ambient */}
       <CloudOrb
-        className="w-[850px] sm:w-[1100px] h-[720px] sm:h-[940px] top-[18%] -left-[380px] opacity-35 sm:opacity-45"
+        className="w-[500px] sm:w-[800px] h-[500px] sm:h-[800px] top-[20%] -left-[200px]"
+        glowColor="rgba(255, 255, 255, 0.03)"
       />
 
-      {/* 4. Domains / Tracks Right Cloud */}
+      {/* 4. Domains / Tracks Subtle Ambient */}
       <CloudOrb
-        isRight
-        className="w-[850px] sm:w-[1100px] h-[720px] sm:h-[940px] top-[34%] -right-[380px] opacity-35 sm:opacity-45"
+        className="w-[500px] sm:w-[800px] h-[500px] sm:h-[800px] top-[38%] -right-[200px]"
+        glowColor="rgba(255, 255, 255, 0.03)"
       />
 
-      {/* 4. Timeline Left Cloud */}
+      {/* 5. Timeline / Prizes Subtle Ambient */}
       <CloudOrb
-        className="w-[950px] sm:w-[1200px] h-[800px] sm:h-[1020px] top-[50%] -left-[400px] opacity-40 sm:opacity-50"
+        className="w-[600px] sm:w-[900px] h-[600px] sm:h-[900px] top-[58%] -left-[250px]"
+        glowColor="rgba(255, 255, 255, 0.03)"
       />
 
-      {/* 5. Prizes / FAQs Right Cloud */}
+      {/* 6. Footer / Reach Out Bottom Ambient */}
       <CloudOrb
-        isRight
-        className="w-[950px] sm:w-[1200px] h-[800px] sm:h-[1020px] top-[68%] -right-[400px] opacity-40 sm:opacity-50"
-      />
-
-      {/* 6. Venue / Reach Out Bottom-Left Cloud */}
-      <CloudOrb
-        className="w-[850px] sm:w-[1100px] h-[720px] sm:h-[940px] top-[83%] -left-[360px] opacity-35 sm:opacity-45"
+        className="w-[600px] sm:w-[900px] h-[600px] sm:h-[900px] top-[80%] -right-[250px]"
+        glowColor="rgba(255, 255, 255, 0.03)"
       />
     </div>
   );

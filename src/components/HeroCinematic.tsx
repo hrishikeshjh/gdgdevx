@@ -9,8 +9,6 @@ interface HeroCinematicProps {
   onOpenRegister?: () => void;
 }
 
-const NOISE_SVG_DATA = `data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E`;
-
 export const HeroCinematic: React.FC<HeroCinematicProps> = ({ onOpenRegister }) => {
   // Subtle mouse tilt parallax on desktop
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -29,58 +27,6 @@ export const HeroCinematic: React.FC<HeroCinematicProps> = ({ onOpenRegister }) 
 
   return (
     <section className="relative z-10 w-full min-h-[100dvh] flex flex-col justify-between items-center px-4 sm:px-8 pt-28 sm:pt-36 pb-8 sm:pb-12 overflow-hidden select-none bg-black">
-      {/* 1. TOP-LEFT HERO GRAINY CLOUD */}
-      <div
-        className="absolute -top-[120px] sm:-top-[160px] -left-[200px] sm:-left-[300px] w-[650px] sm:w-[950px] md:w-[1100px] h-[650px] sm:h-[950px] pointer-events-none -z-10"
-        style={{
-          maskImage: "radial-gradient(ellipse 50% 50% at 45% 45%, rgba(0,0,0,1) 10%, rgba(0,0,0,0.5) 45%, transparent 80%)",
-          WebkitMaskImage: "radial-gradient(ellipse 50% 50% at 45% 45%, rgba(0,0,0,1) 10%, rgba(0,0,0,0.5) 45%, transparent 80%)",
-        }}
-      >
-        <div
-          className="w-full h-full opacity-65 sm:opacity-75"
-          style={{
-            background: "linear-gradient(180deg, #FFFEFE 27.88%, #848484 67.31%, #A3A0A0 100%)",
-            filter: "blur(180px)",
-            transform: "matrix(-0.33, -0.94, 0.94, -0.35, 0, 0)",
-          }}
-        />
-        <div
-          className="absolute inset-0 w-full h-full mix-blend-overlay opacity-80"
-          style={{
-            backgroundImage: `url("${NOISE_SVG_DATA}")`,
-            backgroundRepeat: "repeat",
-            transform: "matrix(-0.33, -0.94, 0.94, -0.35, 0, 0)",
-          }}
-        />
-      </div>
-
-      {/* 2. MIDDLE-RIGHT HERO GRAINY CLOUD */}
-      <div
-        className="absolute top-[200px] sm:top-[260px] -right-[200px] sm:-right-[280px] w-[600px] sm:w-[900px] md:w-[1050px] h-[600px] sm:h-[900px] pointer-events-none -z-10"
-        style={{
-          maskImage: "radial-gradient(ellipse 50% 50% at 55% 50%, rgba(0,0,0,1) 10%, rgba(0,0,0,0.5) 45%, transparent 80%)",
-          WebkitMaskImage: "radial-gradient(ellipse 50% 50% at 55% 50%, rgba(0,0,0,1) 10%, rgba(0,0,0,0.5) 45%, transparent 80%)",
-        }}
-      >
-        <div
-          className="w-full h-full opacity-60 sm:opacity-70"
-          style={{
-            background: "linear-gradient(180deg, #FFFEFE 27.88%, #848484 67.31%, #A3A0A0 100%)",
-            filter: "blur(180px)",
-            transform: "matrix(0.33, 0.94, -0.94, 0.35, 0, 0)",
-          }}
-        />
-        <div
-          className="absolute inset-0 w-full h-full mix-blend-overlay opacity-80"
-          style={{
-            backgroundImage: `url("${NOISE_SVG_DATA}")`,
-            backgroundRepeat: "repeat",
-            transform: "matrix(0.33, 0.94, -0.94, 0.35, 0, 0)",
-          }}
-        />
-      </div>
-
       {/* Spacer for Top Alignment */}
       <div className="w-full h-2 sm:h-4" />
 
