@@ -15,6 +15,8 @@ export const HeroCinematic: React.FC<HeroCinematicProps> = ({ onOpenRegister, is
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
+    if (!window.matchMedia("(pointer: fine)").matches) return;
+
     const handleMouseMove = (e: MouseEvent) => {
       const { innerWidth, innerHeight } = window;
       const x = (e.clientX / innerWidth - 0.5) * 12;
@@ -25,6 +27,7 @@ export const HeroCinematic: React.FC<HeroCinematicProps> = ({ onOpenRegister, is
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
+
 
   return (
     <section className="relative z-10 w-full min-h-[100dvh] flex flex-col justify-between items-center px-4 sm:px-8 pt-28 sm:pt-36 pb-8 sm:pb-12 overflow-hidden select-none bg-black">
@@ -114,23 +117,22 @@ export const HeroCinematic: React.FC<HeroCinematicProps> = ({ onOpenRegister, is
 
       {/* CENTER HERO BLOCK (Smoothly blurs in on site load) */}
       <motion.div
-        initial={{ filter: "blur(20px)", opacity: 0, scale: 0.96 }}
+        initial={{ opacity: 0, scale: 0.96 }}
         animate={{
-          filter: isLoaded ? "blur(0px)" : "blur(20px)",
           opacity: isLoaded ? 1 : 0,
           scale: isLoaded ? 1 : 0.96,
           rotateX: -mousePos.y * 0.4,
           rotateY: mousePos.x * 0.4,
         }}
         transition={{
-          filter: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
-          opacity: { duration: 1.0, ease: [0.16, 1, 0.3, 1] },
-          scale: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
+          opacity: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
+          scale: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
           rotateX: { type: "spring", damping: 30, stiffness: 200 },
           rotateY: { type: "spring", damping: 30, stiffness: 200 },
         }}
-        className="relative my-auto flex flex-col items-center justify-center w-full max-w-5xl px-4 text-center"
+        className="relative my-auto flex flex-col items-center justify-center w-full max-w-5xl px-4 text-center transform-gpu will-change-transform"
       >
+
         {/* 1. LARGE HACKRIT LOGO */}
         <div className="relative w-full max-w-md sm:max-w-2xl md:max-w-3xl lg:max-w-4xl flex items-center justify-center my-3 sm:my-6">
           <Image

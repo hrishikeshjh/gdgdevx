@@ -70,9 +70,10 @@ export const FaqSection: React.FC = () => {
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className="bg-white text-black border border-neutral-100 rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_10px_35px_rgba(0,0,0,0.5)] transition-all duration-200"
+                transition={{ duration: 0.4, delay: idx * 0.04, ease: [0.22, 1, 0.36, 1] }}
+                className="bg-white text-black border border-neutral-100 rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_10px_35px_rgba(0,0,0,0.5)] transition-all duration-200 transform-gpu"
               >
+
                 <button
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
                   className="w-full p-5 sm:p-7 text-left flex items-center justify-between gap-4 focus:outline-none cursor-pointer"

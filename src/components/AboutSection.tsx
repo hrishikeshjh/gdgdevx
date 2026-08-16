@@ -95,9 +95,10 @@ export const AboutSection: React.FC = () => {
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.08 }}
-              className="bg-white text-black p-6 sm:p-7 flex flex-col justify-start rounded-[26px] sm:rounded-[30px] shadow-[0_12px_36px_rgba(0,0,0,0.5)] border border-neutral-100 min-w-0 hover:-translate-y-1 transition-all duration-300 min-h-[220px] sm:min-h-[240px]"
+              transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
+              className="bg-white text-black p-6 sm:p-7 flex flex-col justify-start rounded-[26px] sm:rounded-[30px] shadow-[0_12px_36px_rgba(0,0,0,0.5)] border border-neutral-100 min-w-0 md:hover:-translate-y-1 active:scale-[0.98] transition-transform duration-300 min-h-[220px] sm:min-h-[240px] transform-gpu"
             >
+
               <div className="flex items-center justify-between mb-4">
                 <span className="text-[11px] font-mono font-bold tracking-widest text-neutral-800 uppercase">
                   {pillar.tag}

@@ -11,12 +11,10 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
   }
 
-  html,
-  body {
+  html {
     background-color: #000000 !important;
     color: #ffffff;
     font-family: var(--font-futuristic);
@@ -29,6 +27,15 @@
     -webkit-overflow-scrolling: touch;
   }
 
+  body {
+    background-color: #000000 !important;
+    color: #ffffff;
+    overflow-x: hidden;
+    min-height: 100vh;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
   button, a, input, select, textarea {
     touch-action: manipulation;
   }
@@ -39,6 +46,7 @@
     letter-spacing: 0.1em;
   }
 }
+
 
 /* Smooth Continuous Clock Hand Sweep Animation */
 @keyframes clock-sweep {

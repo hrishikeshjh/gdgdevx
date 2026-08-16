@@ -53,9 +53,10 @@ export const TimelineSection: React.FC = () => {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className="bg-white text-black rounded-full px-6 sm:px-10 py-3.5 sm:py-4 flex items-center justify-between shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-neutral-100 hover:scale-[1.01] transition-transform duration-200"
+              transition={{ duration: 0.4, delay: idx * 0.04, ease: [0.22, 1, 0.36, 1] }}
+              className="bg-white text-black rounded-full px-6 sm:px-10 py-3.5 sm:py-4 flex items-center justify-between shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-neutral-100 md:hover:scale-[1.01] active:scale-[0.99] transition-transform duration-200 transform-gpu"
             >
+
               {/* Left: Time */}
               <div className="flex items-center gap-3 shrink-0">
                 <span className="w-2 h-2 rounded-full bg-black/80 shrink-0" />

@@ -78,11 +78,11 @@ export const TracksSection: React.FC = () => {
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.07 }}
-                className="bg-white text-black p-7 sm:p-8 flex flex-col rounded-2xl sm:rounded-3xl shadow-[0_10px_35px_rgba(0,0,0,0.5)] border border-neutral-100 group hover:-translate-y-1 transition-all duration-300 min-w-0"
+                transition={{ duration: 0.5, delay: idx * 0.06, ease: [0.22, 1, 0.36, 1] }}
+                className="bg-white text-black p-7 sm:p-8 flex flex-col rounded-2xl sm:rounded-3xl shadow-[0_10px_35px_rgba(0,0,0,0.5)] border border-neutral-100 group md:hover:-translate-y-1 active:scale-[0.98] transition-transform duration-300 min-w-0 transform-gpu"
               >
-                <div className="w-12 h-12 rounded-xl bg-black/5 flex items-center justify-center mb-6 shrink-0 group-hover:bg-black group-hover:text-white transition-colors duration-300">
-                  <Icon className="w-6 h-6 text-black group-hover:text-white transition-colors duration-300" />
+                <div className="w-12 h-12 rounded-xl bg-black/5 flex items-center justify-center mb-6 shrink-0 md:group-hover:bg-black md:group-hover:text-white transition-colors duration-300">
+                  <Icon className="w-6 h-6 text-black md:group-hover:text-white transition-colors duration-300" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-black text-black tracking-wide uppercase leading-snug break-words mb-2.5">
                   {track.title}
@@ -91,6 +91,7 @@ export const TracksSection: React.FC = () => {
                   {track.desc}
                 </p>
               </motion.div>
+
             );
           })}
         </div>

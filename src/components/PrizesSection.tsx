@@ -41,8 +41,8 @@ export const PrizesSection: React.FC = () => {
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="bg-white text-black p-7 sm:p-9 flex flex-col justify-between rounded-[26px] sm:rounded-[30px] shadow-[0_12px_36px_rgba(0,0,0,0.5)] border border-neutral-100 order-2 md:order-1 hover:-translate-y-1 transition-all duration-300 min-h-[290px] sm:min-h-[310px]"
+            transition={{ duration: 0.5, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+            className="bg-white text-black p-7 sm:p-9 flex flex-col justify-between rounded-[26px] sm:rounded-[30px] shadow-[0_12px_36px_rgba(0,0,0,0.5)] border border-neutral-100 order-2 md:order-1 md:hover:-translate-y-1 active:scale-[0.98] transition-transform duration-300 min-h-[290px] sm:min-h-[310px] transform-gpu"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
@@ -69,8 +69,8 @@ export const PrizesSection: React.FC = () => {
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="bg-white text-black p-7 sm:p-9 flex flex-col justify-between rounded-[26px] sm:rounded-[30px] shadow-[0_12px_36px_rgba(0,0,0,0.5)] border border-neutral-100 order-1 md:order-2 hover:-translate-y-1 transition-all duration-300 min-h-[290px] sm:min-h-[310px]"
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="bg-white text-black p-7 sm:p-9 flex flex-col justify-between rounded-[26px] sm:rounded-[30px] shadow-[0_12px_36px_rgba(0,0,0,0.5)] border border-neutral-100 order-1 md:order-2 md:hover:-translate-y-1 active:scale-[0.98] transition-transform duration-300 min-h-[290px] sm:min-h-[310px] transform-gpu"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
@@ -97,9 +97,10 @@ export const PrizesSection: React.FC = () => {
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-white text-black p-7 sm:p-9 flex flex-col justify-between rounded-[26px] sm:rounded-[30px] shadow-[0_12px_36px_rgba(0,0,0,0.5)] border border-neutral-100 order-3 hover:-translate-y-1 transition-all duration-300 min-h-[290px] sm:min-h-[310px]"
+            transition={{ duration: 0.5, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
+            className="bg-white text-black p-7 sm:p-9 flex flex-col justify-between rounded-[26px] sm:rounded-[30px] shadow-[0_12px_36px_rgba(0,0,0,0.5)] border border-neutral-100 order-3 md:hover:-translate-y-1 active:scale-[0.98] transition-transform duration-300 min-h-[290px] sm:min-h-[310px] transform-gpu"
           >
+
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="text-[10px] sm:text-xs font-mono tracking-widest uppercase text-neutral-500 font-bold block">

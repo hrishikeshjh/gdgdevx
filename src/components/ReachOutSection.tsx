@@ -13,9 +13,10 @@ export const ReachOutSection: React.FC = () => {
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-white text-black rounded-[30px] sm:rounded-[36px] p-7 sm:p-10 shadow-[0_15px_45px_rgba(0,0,0,0.6)] border border-neutral-100 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8"
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="bg-white text-black rounded-[30px] sm:rounded-[36px] p-7 sm:p-10 shadow-[0_15px_45px_rgba(0,0,0,0.6)] border border-neutral-100 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 transform-gpu"
         >
+
           {/* Left Content */}
           <div className="max-w-2xl">
             {/* Top Venue Tag */}

@@ -41,8 +41,8 @@ export const WhenWhereSection: React.FC = () => {
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="bg-white text-black p-6 sm:p-8 flex flex-col justify-between rounded-[26px] sm:rounded-[30px] shadow-[0_12px_36px_rgba(0,0,0,0.5)] border border-neutral-100 min-h-[190px] sm:min-h-[220px] hover:-translate-y-1 transition-all duration-300"
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="bg-white text-black p-6 sm:p-8 flex flex-col justify-between rounded-[26px] sm:rounded-[30px] shadow-[0_12px_36px_rgba(0,0,0,0.5)] border border-neutral-100 min-h-[190px] sm:min-h-[220px] md:hover:-translate-y-1 active:scale-[0.98] transition-transform duration-300 transform-gpu"
           >
             <div className="flex items-center justify-between mb-4">
               <span className="text-[11px] font-mono font-bold tracking-widest text-[#4285F4] uppercase">
@@ -65,9 +65,10 @@ export const WhenWhereSection: React.FC = () => {
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="bg-white text-black p-6 sm:p-8 flex flex-col justify-between rounded-[26px] sm:rounded-[30px] shadow-[0_12px_36px_rgba(0,0,0,0.5)] border border-neutral-100 min-h-[190px] sm:min-h-[220px] hover:-translate-y-1 transition-all duration-300"
+            transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="bg-white text-black p-6 sm:p-8 flex flex-col justify-between rounded-[26px] sm:rounded-[30px] shadow-[0_12px_36px_rgba(0,0,0,0.5)] border border-neutral-100 min-h-[190px] sm:min-h-[220px] md:hover:-translate-y-1 active:scale-[0.98] transition-transform duration-300 transform-gpu"
           >
+
             <div className="flex items-center justify-between mb-4">
               <span className="text-[11px] font-mono font-bold tracking-widest text-[#EA4335] uppercase">
                 CAMPUS VENUE

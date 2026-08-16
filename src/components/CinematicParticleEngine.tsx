@@ -44,7 +44,7 @@ export const CinematicParticleEngine: React.FC = () => {
     let height = (canvas.height = window.innerHeight);
 
     const isMobile = width < 768;
-    const particleCount = isMobile ? 220 : 650;
+    const particleCount = isMobile ? 60 : 450;
 
     let mouseX = width / 2;
     let mouseY = height / 2;
@@ -55,6 +55,7 @@ export const CinematicParticleEngine: React.FC = () => {
     let lastScrollY = window.scrollY;
     let currentScrollY = window.scrollY;
     let scrollVelocity = 0;
+
 
     // Initialize particles
     const particles: Particle[] = [];
@@ -121,7 +122,7 @@ export const CinematicParticleEngine: React.FC = () => {
     };
 
     const handleTouchMove = (e: TouchEvent) => {
-      if (e.touches.length > 0) {
+      if (!isMobile && e.touches.length > 0) {
         targetMouseX = e.touches[0].clientX;
         targetMouseY = e.touches[0].clientY;
         isMouseActive = true;
@@ -135,6 +136,7 @@ export const CinematicParticleEngine: React.FC = () => {
     const handleScroll = () => {
       currentScrollY = window.scrollY;
     };
+
 
     window.addEventListener("resize", handleResize, { passive: true });
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
