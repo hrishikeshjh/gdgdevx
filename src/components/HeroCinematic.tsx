@@ -13,12 +13,8 @@ const NOISE_SVG_DATA = `data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='h
 
 export const HeroCinematic: React.FC<HeroCinematicProps> = ({ onOpenRegister }) => {
   const { scrollY } = useScroll();
-
-  // Scroll animations for smooth dissolve on scroll
-  const heroOpacity = useTransform(scrollY, [0, 450], [1, 0]);
-  const heroScale = useTransform(scrollY, [0, 450], [1, 0.96]);
-  const heroY = useTransform(scrollY, [0, 450], [0, -30]);
   const scrollIndicatorOpacity = useTransform(scrollY, [0, 150], [1, 0]);
+
 
   // Subtle mouse tilt parallax on desktop
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -36,7 +32,7 @@ export const HeroCinematic: React.FC<HeroCinematicProps> = ({ onOpenRegister }) 
   }, []);
 
   return (
-    <section className="relative z-10 w-full min-h-[100dvh] flex flex-col justify-between items-center px-4 sm:px-8 pt-28 sm:pt-36 pb-8 sm:pb-12 overflow-visible select-none bg-black">
+    <section className="relative z-10 w-full min-h-[100dvh] flex flex-col justify-between items-center px-4 sm:px-8 pt-28 sm:pt-36 pb-8 sm:pb-12 overflow-hidden select-none bg-black">
       {/* 1. TOP-LEFT HERO GRAINY CLOUD */}
       <div
         className="absolute -top-[120px] sm:-top-[160px] -left-[200px] sm:-left-[300px] w-[650px] sm:w-[950px] md:w-[1100px] h-[650px] sm:h-[950px] pointer-events-none -z-10"
@@ -92,13 +88,53 @@ export const HeroCinematic: React.FC<HeroCinematicProps> = ({ onOpenRegister }) 
       {/* Spacer for Top Alignment */}
       <div className="w-full h-2 sm:h-4" />
 
+      {/* 3. CLOCK BACKGROUND GRAPHIC (Offset towards left behind logo and text) */}
+      <div
+        className="absolute top-[48%] -translate-y-1/2 left-[18%] md:left-[22%] lg:left-[24%] -translate-x-1/2 w-[480px] sm:w-[680px] md:w-[800px] lg:w-[900px] aspect-square pointer-events-none z-0 select-none opacity-95 mix-blend-screen transition-transform duration-700"
+      >
+        <Image
+          src="/clock.png"
+          alt="Hero Clock Graphic"
+          fill
+          priority
+          className="object-contain"
+        />
+
+        {/* Ultra-Smooth Continuous Sweeping Red Second Hand */}
+        <div
+          className="absolute top-1/2 left-1/2 w-0 h-0 animate-clock-sweep pointer-events-none"
+          style={{
+            transformOrigin: "0 0",
+          }}
+        >
+          {/* Main Needle pointing outward */}
+          <div
+            className="absolute top-0 left-0 h-[1.5px] sm:h-[2px] bg-gradient-to-r from-[#ef4444] via-[#dc2626] to-[#b91c1c] rounded-full shadow-[0_0_10px_rgba(239,68,68,0.95)]"
+            style={{
+              width: "28vw",
+              maxWidth: "280px",
+              minWidth: "120px",
+              transform: "translateY(-50%)",
+            }}
+          />
+          {/* Counterweight tail on opposite side */}
+          <div
+            className="absolute top-0 right-0 h-[1.5px] sm:h-[2px] bg-[#991b1b] rounded-full"
+            style={{
+              width: "4vw",
+              maxWidth: "40px",
+              minWidth: "20px",
+              transform: "translateY(-50%)",
+            }}
+          />
+          {/* Center Hub Pip with neon red glow */}
+          <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#dc2626] border border-white shadow-[0_0_8px_#dc2626]" />
+        </div>
+      </div>
+
+
       {/* CENTER HERO BLOCK */}
       <motion.div
-        style={{
-          opacity: heroOpacity,
-          scale: heroScale,
-          y: heroY,
-        }}
         animate={{
           rotateX: -mousePos.y * 0.4,
           rotateY: mousePos.x * 0.4,

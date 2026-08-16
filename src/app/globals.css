@@ -40,7 +40,20 @@
   }
 }
 
-/* Custom Utilities for Futuristic Glass & Bold Typography */
+/* Smooth Continuous Clock Hand Sweep Animation */
+@keyframes clock-sweep {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-clock-sweep {
+  animation: clock-sweep 60s linear infinite;
+  will-change: transform;
+}
 .glass-card {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(32px) saturate(190%);
@@ -98,6 +111,14 @@
 }
 
 /* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
 }
