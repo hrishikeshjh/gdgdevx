@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { ChevronDown, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 interface HeroCinematicProps {
   onOpenRegister?: () => void;
@@ -12,10 +12,6 @@ interface HeroCinematicProps {
 const NOISE_SVG_DATA = `data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E`;
 
 export const HeroCinematic: React.FC<HeroCinematicProps> = ({ onOpenRegister }) => {
-  const { scrollY } = useScroll();
-  const scrollIndicatorOpacity = useTransform(scrollY, [0, 150], [1, 0]);
-
-
   // Subtle mouse tilt parallax on desktop
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
@@ -88,9 +84,9 @@ export const HeroCinematic: React.FC<HeroCinematicProps> = ({ onOpenRegister }) 
       {/* Spacer for Top Alignment */}
       <div className="w-full h-2 sm:h-4" />
 
-      {/* 3. CLOCK BACKGROUND GRAPHIC (Offset towards left behind logo and text) */}
+      {/* 3. CLOCK BACKGROUND GRAPHIC (Offset towards left behind logo and text with blur) */}
       <div
-        className="absolute top-[48%] -translate-y-1/2 left-[18%] md:left-[22%] lg:left-[24%] -translate-x-1/2 w-[480px] sm:w-[680px] md:w-[800px] lg:w-[900px] aspect-square pointer-events-none z-0 select-none opacity-95 mix-blend-screen transition-transform duration-700"
+        className="absolute top-[48%] -translate-y-1/2 left-[18%] md:left-[22%] lg:left-[24%] -translate-x-1/2 w-[480px] sm:w-[680px] md:w-[800px] lg:w-[900px] aspect-square pointer-events-none z-0 select-none opacity-90 mix-blend-screen transition-transform duration-700 blur-[3px] sm:blur-[4px]"
       >
         <Image
           src="/clock.png"
@@ -225,34 +221,6 @@ export const HeroCinematic: React.FC<HeroCinematicProps> = ({ onOpenRegister }) 
           </a>
         </div>
       </motion.div>
-
-      {/* MINIMAL SCROLL INDICATOR */}
-      <div className="w-full max-w-6xl flex flex-col items-center">
-        <motion.div
-          style={{ opacity: scrollIndicatorOpacity }}
-          className="flex flex-col items-center gap-2 cursor-pointer pointer-events-auto pb-2"
-          onClick={() => {
-            const revealSection = document.getElementById("event-reveal");
-            if (revealSection) {
-              if (window.__lenis) {
-                window.__lenis.scrollTo(revealSection, { offset: -60 });
-              } else {
-                revealSection.scrollIntoView({ behavior: "smooth" });
-              }
-            }
-          }}
-        >
-          <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.3em] font-mono text-white/40 font-bold hover:text-white/70 transition-colors">
-            SCROLL TO EXPLORE
-          </span>
-          <motion.div
-            animate={{ y: [0, 5, 0] }}
-            transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-          >
-            <ChevronDown className="w-3.5 h-3.5 text-white/40" />
-          </motion.div>
-        </motion.div>
-      </div>
     </section>
   );
 };

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,7 +9,7 @@ interface NavbarProps {
   onOpenRegister?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
+export const Navbar: React.FC<NavbarProps> = () => {
   // Smooth scroll handler with Lenis and fallback
   const scrollToSection = (e: React.MouseEvent, sectionId: string) => {
     e.preventDefault();
@@ -26,15 +26,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
     }
   };
 
-  const handleRegisterClick = () => {
-    if (onOpenRegister) {
-      onOpenRegister();
-    }
-  };
-
   return (
     <header className="fixed top-3 sm:top-5 inset-x-0 z-40 flex justify-center px-2 sm:px-4 md:px-6 pointer-events-none">
-      <nav className="pointer-events-auto flex items-center justify-between w-full max-w-6xl px-3 sm:px-5 md:px-6 py-2 sm:py-2.5 bg-white rounded-full shadow-[0_10px_35px_rgba(0,0,0,0.6)] text-black transition-all duration-300 gap-2 sm:gap-4 md:gap-6 overflow-hidden">
+      <nav className="pointer-events-auto flex items-center justify-between w-full max-w-5xl px-3 sm:px-5 md:px-6 py-2 sm:py-2.5 bg-white rounded-full shadow-[0_10px_35px_rgba(0,0,0,0.6)] text-black transition-all duration-300 gap-2 sm:gap-4 md:gap-6 overflow-hidden">
         {/* HackRIT Logo */}
         <Link
           href="/"
@@ -56,8 +50,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
           </div>
         </Link>
 
-        {/* Navigation Tiles - Directly visible on all screens (including mobile) */}
-        <div className="flex items-center gap-3 sm:gap-4 md:gap-6 lg:gap-7 text-[10px] sm:text-[11px] lg:text-xs font-bold tracking-[0.14em] sm:tracking-[0.16em] text-black uppercase overflow-x-auto no-scrollbar py-1 px-1 whitespace-nowrap scroll-smooth">
+        {/* Navigation Tiles */}
+        <div className="flex items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 text-[10px] sm:text-[11px] lg:text-xs font-bold tracking-[0.14em] sm:tracking-[0.16em] text-black uppercase overflow-x-auto no-scrollbar py-1 px-1 whitespace-nowrap scroll-smooth">
           <a
             href="#about"
             onClick={(e) => scrollToSection(e, "about")}
@@ -93,37 +87,28 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
           >
             FAQS
           </a>
+        </div>
 
-          {/* DevX 2.0 Tile inside navbar items */}
+        {/* DevX 2.0 Right Action (with top-right arrow UX indicating new page / external link) */}
+        <div className="flex items-center shrink-0 pr-0.5 pl-1">
           <a
             href="#about"
             onClick={(e) => scrollToSection(e, "about")}
-            className="flex items-center gap-1 hover:opacity-75 transition-opacity cursor-pointer group shrink-0 pl-1"
+            className="flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 rounded-full hover:bg-black/5 active:scale-95 transition-all cursor-pointer group shrink-0"
             title="DevX 2.0"
           >
-            <div className="relative h-4 sm:h-5 w-16 sm:w-20 md:w-24 flex items-center">
+            <div className="relative h-4 sm:h-5 w-18 sm:w-22 md:w-26 flex items-center">
               <Image
                 src="/devx2.0 logo.png"
                 alt="DevX 2.0"
-                width={100}
-                height={24}
+                width={110}
+                height={26}
                 className="h-full w-auto object-contain"
                 priority
               />
             </div>
-            <ArrowRight className="w-3 h-3 text-black group-hover:translate-x-0.5 transition-transform shrink-0" />
+            <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
           </a>
-        </div>
-
-        {/* Register Button - Framed cleanly inside pill */}
-        <div className="flex items-center shrink-0 pr-0.5">
-          <button
-            onClick={handleRegisterClick}
-            className="bg-black text-white rounded-full px-3.5 sm:px-5 py-1.5 sm:py-2 text-[10px] sm:text-[11px] font-bold tracking-[0.15em] hover:bg-neutral-800 active:scale-95 flex items-center gap-1.5 transition-all duration-200 cursor-pointer shrink-0 shadow-sm"
-          >
-            <span>REGISTER</span>
-            <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white shrink-0" />
-          </button>
         </div>
       </nav>
     </header>

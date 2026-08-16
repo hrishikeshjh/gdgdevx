@@ -2,44 +2,38 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Bot, Cloud, Smartphone, ShieldCheck, Cpu, Cog, ArrowRight } from "lucide-react";
+import { Bot, Cloud, Smartphone, ShieldCheck, Cpu, Cog } from "lucide-react";
 
 export const TracksSection: React.FC = () => {
   const tracks = [
     {
       title: "AI & MACHINE LEARNING",
       icon: Bot,
-      tag: "DOMAIN 01",
       desc: "LLMs, Agentic Workflows, Neural Networks, Computer Vision & Multimodal AI.",
     },
     {
       title: "WEB DEVELOPMENT",
       icon: Cloud,
-      tag: "DOMAIN 02",
       desc: "Scalable Full-Stack, Serverless, Realtime Web & Cloud Native Architectures.",
     },
     {
       title: "CYBERSECURITY",
       icon: ShieldCheck,
-      tag: "DOMAIN 03",
       desc: "Zero-Knowledge Proofs, Threat Intelligence, Cryptography & Network Defense.",
     },
     {
       title: "ANDROID DEVELOPMENT",
       icon: Smartphone,
-      tag: "DOMAIN 04",
       desc: "Modern Android, Kotlin Multiplatform, Flutter & Edge Device Interfaces.",
     },
     {
       title: "DEVOPS & BLOCKCHAIN",
       icon: Cpu,
-      tag: "DOMAIN 05",
       desc: "Kubernetes, CI/CD Automations, Smart Contracts & Distributed Ledgers.",
     },
     {
       title: "ROBOTICS & DESIGN",
       icon: Cog,
-      tag: "DOMAIN 06",
       desc: "Embedded Systems, IoT, Hardware Hacking & Futuristic User Experience Design.",
     },
   ];
@@ -85,29 +79,17 @@ export const TracksSection: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.07 }}
-                className="bg-white text-black p-7 sm:p-8 flex flex-col justify-between rounded-2xl sm:rounded-3xl shadow-[0_10px_35px_rgba(0,0,0,0.5)] border border-neutral-100 group hover:-translate-y-1 transition-all duration-300 min-w-0"
+                className="bg-white text-black p-7 sm:p-8 flex flex-col rounded-2xl sm:rounded-3xl shadow-[0_10px_35px_rgba(0,0,0,0.5)] border border-neutral-100 group hover:-translate-y-1 transition-all duration-300 min-w-0"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-black/5 flex items-center justify-center shrink-0">
-                      <Icon className="w-6 h-6 text-black" />
-                    </div>
-                    <span className="text-[10px] font-mono tracking-widest uppercase text-neutral-400 font-bold">
-                      {track.tag}
-                    </span>
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-black text-black tracking-wide uppercase leading-snug break-words mb-2">
-                    {track.title}
-                  </h3>
-                  <p className="text-xs sm:text-[13px] text-neutral-600 font-sans leading-relaxed">
-                    {track.desc}
-                  </p>
+                <div className="w-12 h-12 rounded-xl bg-black/5 flex items-center justify-center mb-6 shrink-0 group-hover:bg-black group-hover:text-white transition-colors duration-300">
+                  <Icon className="w-6 h-6 text-black group-hover:text-white transition-colors duration-300" />
                 </div>
-
-                <div className="pt-6 mt-6 border-t border-neutral-200 flex items-center justify-between text-xs font-mono font-bold text-black/70 group-hover:text-black transition-colors">
-                  <span>PROBLEM STATEMENTS</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                </div>
+                <h3 className="text-lg sm:text-xl font-black text-black tracking-wide uppercase leading-snug break-words mb-2.5">
+                  {track.title}
+                </h3>
+                <p className="text-xs sm:text-[13px] text-neutral-600 font-sans leading-relaxed">
+                  {track.desc}
+                </p>
               </motion.div>
             );
           })}
